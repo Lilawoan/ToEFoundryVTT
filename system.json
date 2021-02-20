@@ -1,0 +1,29 @@
+{
+  "name": "tailsofequestria",
+  "title": "tailsofequestria",
+  "description": "The Tails of Equestria system for FoundryVTT!",
+  "version": "1.0.4",
+  "minimumCoreVersion": "0.7.5",
+  "compatibleCoreVersion": "0.7.9",
+  "templateVersion": 2,
+  "author": "John Doe",
+  "esmodules": ["module/tailsofequestria.js"],
+  "styles": ["css/tailsofequestria.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "stamina",
+  "secondaryTokenAttribute": "friendship",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt"
+}

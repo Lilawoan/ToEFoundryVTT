@@ -1,0 +1,388 @@
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+/* Global styles */
+.window-app {
+  font-family: cursive;
+}
+
+.window-app input{
+  font-family: cursive;
+}
+
+.rollable:hover, .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7 / span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8 / span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9 / span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10 / span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11 / span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12 / span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+}
+
+.flex-group-left {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flex-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+/* Styles limited to tailsofequestria sheets */
+.tailsofequestria .item-form {
+  font-family: cursive, sans-serif;
+}
+
+.tailsofequestria .sheet-header {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 210px;
+  flex: 0 0 210px;
+  overflow:visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.tailsofequestria .sheet-header .profile-img {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  height: auto;
+  width: 30%;
+  margin-right: 10px;
+  border:none;
+
+}
+
+.tailsofequestria .sheet-header .header-fields {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.tailsofequestria .sheet-header h1 {
+  height: 10%;
+  font-size: x-large;
+  border-bottom: 0;
+}
+
+.tailsofequestria .sheet-header h1 input {
+  margin:0px !important;
+  width: 100%;
+  height: 100%;
+  border:none;
+  border-bottom: 5px solid rgb(244, 194, 223);
+  background: rgba(0, 0, 0, 0.00);
+}
+
+.tailsofequestria .sheet-tabs {
+  -webkit-box-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+}
+
+.tailsofequestria .sheet-body,
+.tailsofequestria .sheet-body .tab,
+.tailsofequestria .sheet-body .tab .editor {
+  height: 100%;
+}
+
+.tailsofequestria .tox .tox-editor-container {
+  background: #fff;
+}
+
+.tailsofequestria .tox .tox-edit-area {
+  padding: 0 8px;
+}
+
+.tailsofequestria .resource-label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tailsofequestria .tabs {
+  height: 40px;
+border: none !important;
+}
+
+.tailsofequestria .tabs .item {
+  font-weight: bold;
+}
+
+.tailsofequestria .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+.tailsofequestria .items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.tailsofequestria .items-list .item-header {
+  font-weight: bold;
+}
+
+.tailsofequestria .items-list .item {
+  height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+}
+
+.tailsofequestria .items-list .item .item-image {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 5%;
+  flex: 0 0 5%;
+  margin-right: 5px;
+}
+
+.tailsofequestria .items-list .item img {
+  display: block;
+}
+
+.tailsofequestria .items-list .item-name {
+  margin: 0;
+  flex: 0 0 20%;
+}
+.tailsofequestria .items-list .item-dice {
+  margin: 0;
+  flex: 0 0 7%;
+}
+
+.tailsofequestria .items-list .item-trait {
+  margin: 0;
+  flex: 0 0 7%;
+}
+.tailsofequestria .items-list .item-text {
+  margin: 0;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;}
+
+  .tailsofequestria .items-list .item-qte {
+    -webkit-box-flex: 0;
+    flex: 0 0 10%;
+    text-align: right;
+    text-align: center;
+  }
+
+  .tailsofequestria .items-list .item-create {
+    font-size: small;
+  }
+
+.tailsofequestria .items-list .item-controls {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 10%;
+  text-align: right;
+}
+
+.tailsofequestria .dice-icon {
+  height:auto !important;
+  width: 75% !important;
+  border: none ;
+  margin-left: 25%;
+  background: radial-gradient(
+    ellipse at center,
+    rgb(255, 254, 236) 0%,
+    rgb(255, 254, 236) 70%,
+    rgba(255, 255, 255, 0) 70.3%
+  );
+}
+
+.tailsofequestria .friendshiptoken {
+      background: radial-gradient(
+      ellipse at center,
+      rgb(248, 225, 231) 0%,
+      rgb(248, 225, 231) 70%,
+      rgba(224, 187, 228, 0) 70.3%
+    );
+    border: 5px solid rgb(244, 194, 223) !important;
+    border-radius: 100%;
+    width: 120px;
+    height : 120px;
+    font-size: large;
+    position:relative;
+    margin-right: 25%;
+    margin-left:25%;
+}
+.tailsofequestria .friendshiptoken .inputtoken {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: small;
+  border:none;
+}
+.tailsofequestria .friendshiptoken .inputtoken input {
+  border-radius: 20%;
+  border : none;
+  width: 15%;
+  font-size: x-large;
+  margin-top: 5%;
+  width: 30%;
+}
+
+
+.tailsofequestria .staminabox {
+  border:none;
+  font-size: x-large;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.tailsofequestria .reductionbox{
+  width: 30%;
+}
+
+.tailsofequestria .staminatextbox {
+  height: auto;
+  border:none;
+  border-radius: 20%;
+  font-size: smaller;
+  padding: 3%;
+}
+
+
+.tailsofequestria .cuteborder {
+  border: 5px solid rgb(244, 194, 223) !important;
+  background: rgb(248, 225, 231) ;
+  border-radius: 30px;
+  margin-left: 5%;
+}
+
+.tailsofequestria .cuteborder input{
+  border:none;
+  border-radius: 30px;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 75%;
+}
+
+.tailsofequestria .cutenav {
+  border: 3px solid rgb(244, 194, 223) !important;
+  background: rgb(248, 225, 231) ;
+  border-radius: 30px;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+.colorschemebody{
+  background: rgb(255, 254, 236);
+  border-radius: 30px;
+  padding:1%;
+}
+
+.colorscheme{
+  background: rgb(247, 235, 195);
+  border-radius: 30px;
+  padding:1%;
+}
+
+.tailsfofequestria .dice-select{
+  width: 100%;
+}

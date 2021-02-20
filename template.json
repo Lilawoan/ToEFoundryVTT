@@ -1,0 +1,69 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "templates": {
+      "base": {
+        "stamina": {
+          "value": 10,
+          "min": 0,
+          "max": 10,
+          "damageReduction": {
+            "value": 0,
+            "min": 0
+          }
+        },
+          "friendship": {
+            "value": 0,
+            "min": 0
+          }
+        }
+      },
+      "character": {
+        "templates": ["base"],
+        "race": "",
+        "biography": "",
+        "elementofharmony": "",
+        "attributes": {
+          "level": {
+            "value": 1
+          },
+          "friendship": {
+            "value": 0
+          }
+        },
+        "abilities": {
+          "body": {
+            "value": "1d6"
+          },
+          "mind": {
+            "value": "1d6"
+          },
+          "charm": {
+            "value": "1d6"
+          }
+        }
+      }
+},
+    "Item": {
+      "types": ["item", "quirk", "talent"],
+      "templates": {
+        "base": {
+          "description": "",
+          "resume":""
+        }
+      },
+      "item": {
+        "templates": ["base"],
+        "quantity": 1,
+        "price": 0
+      },
+      "quirk": {
+        "templates": ["base"]
+      },
+      "talent": {
+        "templates": ["base"],
+        "talentLevel": "1d6",
+        "abilitie" : ""
+      }
+    }
+}

@@ -1,0 +1,30 @@
+<form class="{{cssClass}} colorschemebody" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        <div class="header-fields colorscheme">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+            <p>type : {{item.type}}</p>  
+            <div class="resource  flexcol flex-group-center  cuteborder">
+                <label class="resource-label">Notes</label>
+                <input type="text" name="data.resume" value="{{data.resume}}" data-dtype="text" />
+            </div>  
+        </div>
+    </header>
+
+    <div class="colorscheme">
+        {{!-- Sheet Tab Navigation --}}
+        <nav class="sheet-tabs tabs" data-group="primary">
+            <a class="item cutenav" data-tab="description">Description</a>
+            <a class="item " data-tab="attributes"></a>
+        </nav>
+
+        {{!-- Sheet Body --}}
+        <section class="sheet-body ">
+
+            {{!-- Description Tab --}}
+            <div class="tab" data-group="primary" data-tab="description">
+                {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+            </div>
+        </section>
+    </div>
+</form>
