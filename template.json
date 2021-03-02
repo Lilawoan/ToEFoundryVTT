@@ -33,13 +33,16 @@
         },
         "abilities": {
           "body": {
-            "value": "1d6"
+            "value": "1d6",
+            "modif": "0"
           },
           "mind": {
-            "value": "1d6"
+            "value": "1d6",
+            "modif": "0"
           },
           "charm": {
-            "value": "1d6"
+            "value": "1d6",
+            "modif": "0"
           }
         }
       }
@@ -63,7 +66,8 @@
       "talent": {
         "templates": ["base"],
         "talentLevel": "1d6",
-        "abilitie" : ""
+        "abilitie" : "",
+        "modif": 0
       }
     }
 }

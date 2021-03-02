@@ -13,6 +13,7 @@
                         <option value="body">body</option>
                         <option value="mind">mind</option>
                         <option value="charm">charm</option>
+                        <option value="0">none</option>
                         {{/select}}
                       </select>
                 </div>
@@ -28,6 +29,10 @@
                         <option value="1d20">1d20</option>
                         {{/select}}
                       </select>
+                      <div class="resource-content flex flex-row flex-right flex-between">
+                        <label for="data.talentLevel.modif">Modifier</label>
+                        <input class="reductionbox" type="number" name="data.talentLevel.modif" value="{{data.talentLevel.modif}}" data-dtype="Number" />
+                      </div>
                 </div>
             </div>
 

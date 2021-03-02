@@ -11,7 +11,11 @@ export class TailsofequestriaActorSheet extends ActorSheet {
       template: "systems/tailsofequestria/templates/actor/actor-sheet.html",
       width: 700,
       height: 600,
-      tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
+      tabs: [{
+        navSelector: ".sheet-tabs",
+        contentSelector: ".sheet-body",
+        initial: "description"
+      }]
     });
   }
 
@@ -135,9 +139,11 @@ export class TailsofequestriaActorSheet extends ActorSheet {
     };
     // Remove the type from the dataset since it's in the itemData.type prop.
     delete itemData.data['type'];
-    
+
     // Finally, create the item!
-    return this.actor.createOwnedItem(itemData, { renderSheet: true });
+    return this.actor.createOwnedItem(itemData, {
+      renderSheet: true
+    });
   }
 
   /**
@@ -155,26 +161,186 @@ export class TailsofequestriaActorSheet extends ActorSheet {
       yes: () => this._rollExplosiveDices(dataset),
       no: () => this._rollDices(dataset),
       defaultYes: false
-     });
+    });
   }
 
   _rollDices(dataset) {
+    //dataset.roll="dice,dice,...,dice;modif/dice,dice,...,dice;modif"
+    let lancer = dataset.roll;
+    const jet = lancer.split('/');
+    const jet1 = jet[0].split(';');
+    let jet2 = [];
+    const jet2carac = jet[1]
+    let roll = '{';
+    //if the dice are modified
+    if (jet1[1] !== "0") {
+      let jet1mod = this._applyModifier(jet1);
+      roll = roll + jet1mod.join();
+    } else {
+      roll = roll + jet1[0];
+    }
+    //get the dice for the additionnal roll
+    if (jet2carac !== "0") {
+      jet2.push(this.actor.data.data.abilities[jet2carac].value);
+      jet2.push(this.actor.data.data.abilities[jet2carac].modif);
+      if (jet2[1] !== "0") {
+        let jet2mod = this._applyModifier(jet2);
+        roll = roll + ',' + jet2mod.join();
+      } else {
+        roll = roll + ',' + jet2[0];
+      }
+    }
+    roll = roll + "}kh";
+
     if (dataset.roll) {
-      let roll = new Roll(dataset.roll, this.actor.data.data);
+
+      let rolling = new Roll(roll, this.actor.data.data);
       let label = dataset.label ? `Rolling ${dataset.label}` : '';
-      roll.roll().toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      rolling.roll().toMessage({
+        speaker: ChatMessage.getSpeaker({
+          actor: this.actor
+        }),
         flavor: label
       });
     }
   }
 
-  _rollExplosiveDices(dataset) {
-    if (dataset.roll) {
-      let roll = new Roll(dataset.roll, this.actor.data.data);
-      let label = dataset.label ? `Rolling ${dataset.label}` : '';
-      let result=roll.roll()
-      console.log(result)
+  _applyModifier(dataset) {
+
+    let diceArray = ['1d4', '1d6', '1d8', '1d10', '1d12', '1d20'];
+    // get modifier
+    let modif = parseInt(dataset[1], 10);
+
+    //get dice array to modify
+    let diceList = dataset[0].split(",");
+
+    //get the new roll to throw 
+    let lastDice = diceList[diceList.length - 1];
+    let lastDiceIndex = diceArray.indexOf(lastDice)
+    let newDiceIndex = lastDiceIndex + modif;
+    let newDice;
+    if (newDiceIndex > diceArray.length - 1) {
+      //if we need to add dice to the dicepool
+      diceList[diceList.length - 1] = '1d20';
+      newDiceIndex = newDiceIndex - 6;
+      while (newDiceIndex > diceArray.length) {
+        diceList.push("1d20");
+        newDiceIndex = newDiceIndex - 6;
+      }
+      diceList.push(diceArray[newDiceIndex]);
+
+    } else if (newDiceIndex < 0) {
+      //if the dice pool is reduced by the modifier
+      while (newDiceIndex < -6) {
+        if (diceList.length > 1) {
+          diceList.pop();
+          newDiceIndex = newDiceIndex + 6
+        }
+      }
+      if (diceList.length > 1) {
+        diceList.pop();
+        newDice = diceArray[diceArray.length + newDiceIndex];
+        diceList[diceList.length - 1] = newDice;
+      } else {
+        diceList = ['1d4'];
+      }
+    } else {
+      //if the number of dice in the dicepool is unmodified
+      newDice = diceArray[newDiceIndex];
+      diceList[diceList.length - 1] = newDice;
     }
+    return diceList;
+
+
+  }
+  _rollExplosiveDices(dataset) {
+    //dataset.roll="dice,dice,...,dice;modif/dice,dice,...,dice;modif"
+    let lancer = dataset.roll;
+    const jet = lancer.split('/');
+    const jet1 = jet[0].split(';');
+    let jet2 = [];
+    const jet2carac = jet[1]
+    let roll = '{';
+    let jet1mod;
+    //if the dice are modified
+    if (jet1[1] !== "0") {
+      jet1mod = this._applyModifier(jet1);
+    } else {
+      jet1mod = jet1[0].split(',')
+    }
+    let jet1explosive = [];
+    //for each dice in the array, apply the explosive dice and put the result in a new array
+    jet1mod.forEach(element => {
+      let dice = this._applyExplosive(element);
+      jet1explosive = jet1explosive.concat(dice);
+    });
+    roll = roll + jet1explosive.join();
+
+    //get the dice for the additionnal roll
+    if (jet2carac !== "0") {
+      jet2.push(this.actor.data.data.abilities[jet2carac].value);
+      jet2.push(this.actor.data.data.abilities[jet2carac].modif);
+      if (jet2[0] !== "0") {
+        let jet2mod
+        let jet2explosive = [];
+        if (jet2[1] !== "0") {
+          jet2mod = this._applyModifier(jet2);
+        } else {
+          jet2mod = jet2[0].split(',')
+        }
+    //apply add the explosive dice result to the roll
+        jet2mod.forEach(element => {
+          let dice = this._applyExplosive(element);
+          jet2explosive = jet2explosive.concat(dice);
+        });
+        roll = roll + ',' + jet2explosive.join();
+      }
+    }
+
+    roll = roll + "}kh";
+    if (roll) {
+      let rolling = new Roll(roll, this.actor.data.data);
+      let label = dataset.label ? `Rolling ${dataset.label}` : '';
+      rolling.roll().toMessage({
+        speaker: ChatMessage.getSpeaker({
+          actor: this.actor
+        }),
+        flavor: label
+      });
+    }
+  }
+
+  _applyExplosive(dataset) {
+    let DiceRollMap = new Map([
+      ['1d4', '1d6'],
+      ['1d6', '1d8'],
+      ['1d8', '1d10'],
+      ['1d10', '1d12'],
+      ['1d12', '1d20']
+    ]);
+    let DiceResultMap = new Map([
+      ['1d4', 4],
+      ['1d6', 6],
+      ['1d8', 8],
+      ['1d10', 10],
+      ['1d12', 12],
+      ['1d20', 20]
+    ]);
+    let roll = dataset;
+
+    let rolling = new Roll(roll, this.actor.data.data);
+    let label = dataset.label ? `Rolling explosive ${dataset.label}` : '';
+    let jet = rolling.roll();
+    let result = [];
+    result.push(jet.total);
+
+    //while dice is maximize continue to explode
+    while (DiceResultMap.get(roll) == jet.total && jet.total !== 20) {
+      roll = DiceRollMap.get(roll);
+      rolling = new Roll(roll, this.actor.data.data);
+      jet = rolling.roll();
+      result.push(jet.total);
+    }
+    return result;
   }
 }
