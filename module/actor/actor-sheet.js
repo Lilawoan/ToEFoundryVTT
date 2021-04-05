@@ -193,8 +193,8 @@ export class TailsofequestriaActorSheet extends ActorSheet {
     roll = roll + "}kh";
 
     if (dataset.roll) {
-
       let rolling = new Roll(roll, this.actor.data.data);
+      console.log(rolling);
       let label = dataset.label ? `Rolling ${dataset.label}` : '';
       rolling.roll().toMessage({
         speaker: ChatMessage.getSpeaker({
@@ -260,7 +260,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
     const jet1 = jet[0].split(';');
     let jet2 = [];
     const jet2carac = jet[1]
-    let roll = '{';
+
     let jet1mod;
     //if the dice are modified
     if (jet1[1] !== "0") {
@@ -269,44 +269,79 @@ export class TailsofequestriaActorSheet extends ActorSheet {
       jet1mod = jet1[0].split(',')
     }
     let jet1explosive = [];
+    let pool1explosive = jet1mod;
     //for each dice in the array, apply the explosive dice and put the result in a new array
     jet1mod.forEach(element => {
       let dice = this._applyExplosive(element);
-      jet1explosive = jet1explosive.concat(dice);
+        pool1explosive = pool1explosive.concat(dice[0])
+        jet1explosive = jet1explosive.concat(dice[1]);
     });
-    roll = roll + jet1explosive.join();
+    console.log("poolExplosive",pool1explosive);
+    let roll = '{' + jet1explosive.join();
+    let jetExplosive= jet1explosive;
+    let poolExplosive = pool1explosive
+    let falseroll= "{"+ pool1explosive.join();
 
     //get the dice for the additionnal roll
     if (jet2carac !== "0") {
       jet2.push(this.actor.data.data.abilities[jet2carac].value);
       jet2.push(this.actor.data.data.abilities[jet2carac].modif);
+      let jet2explosive = [];
+      let pool2explosive;
+
       if (jet2[0] !== "0") {
         let jet2mod
-        let jet2explosive = [];
+
         if (jet2[1] !== "0") {
           jet2mod = this._applyModifier(jet2);
         } else {
           jet2mod = jet2[0].split(',')
         }
+        pool2explosive = jet2mod;
     //apply add the explosive dice result to the roll
         jet2mod.forEach(element => {
           let dice = this._applyExplosive(element);
-          jet2explosive = jet2explosive.concat(dice);
+          pool2explosive = pool2explosive.concat(dice[0])
+          jet2explosive = jet2explosive.concat(dice[1]);
         });
         roll = roll + ',' + jet2explosive.join();
+        falseroll= falseroll +","+ pool2explosive.join();
       }
+       jetExplosive = jetExplosive.concat(jet2explosive);
+       poolExplosive = poolExplosive.concat(pool2explosive);
     }
 
     roll = roll + "}kh";
+    falseroll= falseroll + "}kh";
     if (roll) {
+      //create the true result
       let rolling = new Roll(roll, this.actor.data.data);
+      console.log("vrai",rolling);
+
+      //simulate the dice roll
+      let falserolling = new Roll(falseroll, this.actor.data.data);
+      console.log("jetExplosive=",jetExplosive);
+      console.log("poolExplosive=",poolExplosive);
+
+      console.log("faux terms[0]",falserolling.terms[0]);
+
+      console.log("faux",falserolling);
+      falserolling._total=rolling._total;
+
       let label = dataset.label ? `Rolling ${dataset.label}` : '';
-      rolling.roll().toMessage({
+      rolling.toMessage({
         speaker: ChatMessage.getSpeaker({
           actor: this.actor
         }),
         flavor: label
       });
+      // falserolling.toMessage({
+      //   speaker: ChatMessage.getSpeaker({
+      //     actor: this.actor
+          
+      //   }),
+      //   flavor: label
+      // });
     }
   }
 
@@ -327,9 +362,8 @@ export class TailsofequestriaActorSheet extends ActorSheet {
       ['1d20', 20]
     ]);
     let roll = dataset;
-
+    let dicepool=[];
     let rolling = new Roll(roll, this.actor.data.data);
-    let label = dataset.label ? `Rolling explosive ${dataset.label}` : '';
     let jet = rolling.roll();
     let result = [];
     result.push(jet.total);
@@ -340,7 +374,13 @@ export class TailsofequestriaActorSheet extends ActorSheet {
       rolling = new Roll(roll, this.actor.data.data);
       jet = rolling.roll();
       result.push(jet.total);
+      dicepool.push(roll); 
     }
-    return result;
+    console.log("dicepool",dicepool);
+    let explosiveDice=[];
+    explosiveDice.push(dicepool);
+    explosiveDice.push(result);
+
+    return explosiveDice;
   }
 }
