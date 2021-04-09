@@ -5,6 +5,7 @@
     ],
     "templates": {
       "base": {
+        "race": "",
         "stamina": {
           "value": 10,
           "min": 0,
@@ -13,6 +14,20 @@
             "value": 0,
             "min": 0
           }
+        },
+        "abilities": {
+          "body": {
+            "value": "1d6",
+            "modif": 0
+          },
+          "mind": {
+            "value": "1d6",
+            "modif": 0
+          },
+          "charm": {
+            "value": "1d6",
+            "modif": 0
+          }
         }
       }
     },
@@ -20,25 +35,9 @@
       "templates": [
         "base"
       ],
-      "race": "",
-      "biography": "",
       "elementofharmony": "",
       "level": 1,
-      "friendship" : 0,
-      "abilities": {
-        "body": {
-          "value": "1d6",
-          "modif": 0
-        },
-        "mind": {
-          "value": "1d6",
-          "modif": 0
-        },
-        "charm": {
-          "value": "1d6",
-          "modif": 0
-        }
-      }
+      "friendship": 0
     }
   },
   "Item": {
