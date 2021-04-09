@@ -52,7 +52,10 @@
     "types": [
       "item",
       "quirk",
-      "talent"
+      "talent",
+      "reputation",
+      "spell",
+      "vehicle"
     ],
     "templates": {
       "base": {
@@ -81,6 +84,33 @@
       "talentLevel": "1d6",
       "abilitie": "",
       "modif": 0
+    },
+    "reputation" : {
+      "templates": [
+        "base"
+      ],
+      "faction": "",
+      "level": 0
+    },
+    "spell" : {
+      "templates": [
+        "base"
+      ],
+      "difficulty": 0
+    },
+    "vehicle": {
+      "templates": [
+        "base"
+      ],
+      "type": "",
+      "speed": 0,
+      "handling": 0,
+      "stability": 0,
+      "armor": 0,
+      "damage": 0,
+      "price": 0,
+      "isUnique": false,
+      "isMagic": false
     }
   }
 }
