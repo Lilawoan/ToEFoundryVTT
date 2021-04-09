@@ -13,10 +13,6 @@
             "value": 0,
             "min": 0
           }
-        },
-        "friendship": {
-          "value": 0,
-          "min": 0
         }
       }
     },
@@ -28,11 +24,7 @@
       "biography": "",
       "elementofharmony": "",
       "level": 1,
-      "attributes": {
-        "friendship": {
-          "value": 0
-        }
-      },
+      "friendship" : 0,
       "abilities": {
         "body": {
           "value": "1d6",
