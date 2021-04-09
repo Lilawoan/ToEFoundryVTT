@@ -1,7 +1,8 @@
 {
   "Actor": {
     "types": [
-      "character"
+      "character",
+      "non_player_character"
     ],
     "templates": {
       "base": {
@@ -38,6 +39,13 @@
       "elementofharmony": "",
       "level": 1,
       "friendship": 0
+    },
+    "non_player_character": {
+      "templates": [
+        "base"
+      ],
+      "isUnique": false,
+      "tactics": ""
     }
   },
   "Item": {

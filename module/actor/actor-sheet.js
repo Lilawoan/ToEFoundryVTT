@@ -8,7 +8,6 @@ export class TailsofequestriaActorSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["tailsofequestria", "sheet", "actor"],
-            template: "systems/tailsofequestria/templates/actor/actor-sheet.html",
             width: 700,
             height: 600,
             tabs: [{
@@ -19,6 +18,13 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         });
     }
 
+    /** @override */
+    get template() {
+        const basePath = "systems/tailsofequestria/templates/actor";
+
+        return `${basePath}/${this.actor.data.type}-sheet.html`;
+    }
+
     /* -------------------------------------------- */
 
     /** @override */
@@ -27,9 +33,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         data.dtypes = ["String", "Number", "Boolean"];
 
         // Prepare items.
-        if (this.actor.data.type == 'character') {
-            this._prepareCharacterItems(data);
-        }
+        this._prepareCharacterItems(data);
 
         return data;
     }
