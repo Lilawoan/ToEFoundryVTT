@@ -38,15 +38,15 @@
       "abilities": {
         "body": {
           "value": "1d6",
-          "modif": "0"
+          "modif": 0
         },
         "mind": {
           "value": "1d6",
-          "modif": "0"
+          "modif": 0
         },
         "charm": {
           "value": "1d6",
-          "modif": "0"
+          "modif": 0
         }
       }
     }

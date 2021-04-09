@@ -38,7 +38,7 @@
           <div class="resource-content flex flex-row flex-right flex-between">
             <label for="data.stamina.damagereduction">Damage Reduction</label>
             <input class="reductionbox" type="text" name="data.stamina.damagereduction.value"
-              value="{{data.stamina.damagereduction.value}}" data-dtype="Number" />
+              value="{{data.stamina.damageReduction.value}}" data-dtype="Number" />
           </div>
         </div>
         <div class=" flex-group-center friendshiptoken">
@@ -126,13 +126,13 @@
           <li class="item flexrow" data-item-id="{{item._id}}">
             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" /></div>
             <span class="ability-mod rollable item-name"
-              data-roll="{{item.data.talentLevel.value}};{{item.data.talentLevel.modif}}/{{item.data.abilitie.value}}"
+              data-roll="{{item.data.talentLevel.value}};{{item.data.modif}}/{{item.data.abilitie.value}}"
 
               data-label="{{item.name}}">
               <h4>{{item.name}}</h4>
             </span>
             <h4 class="item-dice">{{item.data.talentLevel.value}}</h4>
-            <h4 class="item-dice">{{item.data.talentLevel.modif}}</h4>
+            <h4 class="item-dice">{{item.data.modif}}</h4>
             <h4 class="item-trait">{{item.data.abilitie.value}}</h4>
             <div class="item-text ">{{item.data.resume}}</div>
             <div class="item-controls">
