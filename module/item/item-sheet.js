@@ -30,6 +30,7 @@ export class TailsofequestriaItemSheet extends ItemSheet {
   /** @override */
   getData() {
     const data = super.getData();
+    // data.data.isUnique = data.item.isUnique;
     return data;
   }
 
@@ -50,9 +51,11 @@ export class TailsofequestriaItemSheet extends ItemSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Everything below here is only needed if the sheet is editable
-    if (!this.options.editable) return;
-
-    // Roll handlers, click handlers, etc. would go here.
+    html.find('.custom-checkbox').click(ev => {
+        const targetField = ev.target.dataset.target;
+        const data = this.getData();
+        data.item[targetField] = !data.item[targetField];
+        console.log(data.item[targetField]);
+    })
   }
 }

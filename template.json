@@ -68,7 +68,9 @@
         "base"
       ],
       "quantity": 1,
-      "price": 0
+      "price": 0,
+      "isUnique": false,
+      "isMagic": false
     },
     "quirk": {
       "templates": [

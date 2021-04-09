@@ -3,7 +3,22 @@
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         <div class="header-fields colorscheme">
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
-            <p>type : {{item.type}}</p>    
+
+            <div class="flexrow flex-center">
+                <div class="cuteborder">
+                    <p>type : {{item.type}}</p>
+                </div>
+                <div class="flexrow flex-center flex-right cuteborder">
+                    <input type="checkbox" name="data.isUnique" {{checked item.data.isUnique}} />
+                    <label>Unique</label>
+                </div>
+                <div class="flexrow flex-center flex-right cuteborder">
+                    <input type="checkbox" name="data.isMagic" {{checked item.data.isMagic}} />
+                    <label>Magic</label>
+                </div>
+            </div>
+
+
             <div class="grid grid-2col">
                 <div class="resource  flexcol flex-group-center  cuteborder">
                     <label class="resource-label">Quantity</label>
