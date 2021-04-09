@@ -27,10 +27,8 @@
       "race": "",
       "biography": "",
       "elementofharmony": "",
+      "level": 1,
       "attributes": {
-        "level": {
-          "value": 1
-        },
         "friendship": {
           "value": 0
         }
