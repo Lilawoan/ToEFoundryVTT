@@ -183,7 +183,7 @@
 .tailsofequestria .sheet-body,
 .tailsofequestria .sheet-body .tab,
 .tailsofequestria .sheet-body .tab .editor {
-  height: 100%;
+  height: 200px;
 }
 
 .tailsofequestria .tox .tox-editor-container {
@@ -394,8 +394,9 @@ border: none !important;
   border: 3px solid rgb(244, 194, 223) !important;
   background: rgb(248, 225, 231) ;
   border-radius: 30px;
-  margin-left: 1px;
-  margin-right: 1px;
+  margin:1px;
+  height: 100%;
+  line-height: 180%;
 }
 
 .colorschemebody{
