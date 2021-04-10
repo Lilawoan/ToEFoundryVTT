@@ -2,56 +2,56 @@
 
     {{!-- Sheet Header --}}
     <header class="sheet-header ">
-        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="auto" width="100"/>
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="auto" width="100" />
         <div class="header-fields colorscheme">
-            <h1 class="resource-label  flex-right flex-between ">
-                <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-            </h1>
-            <div>
-                <input type="checkbox" name="data.isUnique" {{checked data.isUnique}} />
-                <label>Unique</label>
+
+            <div class="flexrow">
+                <h1 class="resource-label flex-right flex-between ">
+                    <input name="name" type="text" value="{{actor.name}}" placeholder="Name" /></h1>
+                </h1>
             </div>
+
+
+
+
 
             <div class="resources grid grid-2col  ">
-                <div>
-                    <div class="resource-label  flex-center flex-between cuteborder  ">
-                        <label for="data.race">Race</label>
-                        <input type="text" name="data.race" value="{{data.race}}" data-dtype="text"/>
-                    </div>
 
-                    <div class="resource flex-row flex-group-center cuteborder">
-                        <label for="data.stamina.value" class="resource-label">Stamina</label>
-                        <div class=" staminabox resource-content flexrow flex-center flex-between">
-                            <input class="staminatextbox" type="text" name="data.stamina.value"
-                                   value="{{data.stamina.value}}"
-                                   data-dtype="Number"/>
-                            <span> / </span>
-                            <input class="staminatextbox" type="text" name="data.stamina.max" value="{{data.stamina.max}}"
-                                   data-dtype="Number"/>
-                        </div>
-                        <div class="resource-content flex flex-row flex-right flex-between">
-                            <label for="data.stamina.damagereduction">Damage Reduction</label>
-                            <input class="reductionbox" type="text" name="data.stamina.damagereduction.value"
-                                   value="{{data.stamina.damageReduction.value}}" data-dtype="Number"/>
-                        </div>
+                <div class="resource-label  flex-center flex-between cuteborder  ">
+                    <label for="data.race">Race</label>
+                    <input type="text" name="data.race" value="{{data.race}}" data-dtype="text" />
+                    <div>
+                        <label for="data.isUnique">Unique</label>
+                        <input type="checkbox" name="data.isUnique" {{checked data.isUnique}} />
                     </div>
                 </div>
 
-                <div class="resource flexcol flex-group-center cuteborder">
-                    <label class="resource-label">Tactics</label>
-                    <input type="text" name="data.tactics" value="{{data.tactics}}" data-dtype="text"/>
+                <div class="resource flex-row flex-group-center cuteborder">
+                    <label for="data.stamina.value" class="resource-label">Stamina</label>
+                    <div class=" staminabox resource-content flexrow flex-center flex-between">
+                        <input class="staminatextbox" type="text" name="data.stamina.value"
+                            value="{{data.stamina.value}}" data-dtype="Number" />
+                        <span> / </span>
+                        <input class="staminatextbox" type="text" name="data.stamina.max" value="{{data.stamina.max}}"
+                            data-dtype="Number" />
+                    </div>
+                    <div class="resource-content flex flex-row flex-right flex-between">
+                        <label for="data.stamina.damagereduction">Damage Reduction</label>
+                        <input class="reductionbox" type="text" name="data.stamina.damagereduction.value"
+                            value="{{data.stamina.damageReduction.value}}" data-dtype="Number" />
+                    </div>
                 </div>
             </div>
-<!--            <div class="resources grid grid-2col">-->
+            <!--            <div class="resources grid grid-2col">-->
 
-<!--            </div>-->
+            <!--            </div>-->
             <div class="abilities grid grid-3col">
                 {{#each data.abilities as |ability key|}}
                 <div class="ability flexcol flex-group-center cuteborder">
 
                     {{!-- data-roll = "caracdice, modifier;0,0--}}
                     <span class="ability-mod rollable " data-roll="{{ability.value}};{{ability.modif}}/0"
-                          data-label="{{key}}">
+                        data-label="{{key}}">
                         <label for="data.abilities.{{key}}.value" class="resource-label">{{key}}</label>
                     </span>
                     <div class="flexrow flex-group-center">
@@ -80,7 +80,7 @@
                         <div class="resource-content flex flex-row flex-right flex-between">
                             <label for="data.abilities.{{key}}.modif">Modifier</label>
                             <input class="reductionbox" type="number" name="data.abilities.{{key}}.modif"
-                                   value="{{ability.modif}}" data-dtype="Number"/>
+                                value="{{ability.modif}}" data-dtype="Number" />
                         </div>
 
                     </div>
@@ -88,57 +88,90 @@
                 {{/each}}
 
             </div>
+
         </div>
     </header>
     <div class="colorscheme">
-        {{!-- Sheet Tab Navigation --}}
-        <nav class="sheet-tabs tabs" data-group="primary">
-            <a class="cutenav item" data-tab="talent">Talents</a>
-            <a class="cutenav item" data-tab="items">Items</a>
-            <a class="cutenav item" data-tab="quirks">Quirks</a>
-            <a class="cutenav item" data-tab="description">Description</a>
-        </nav>
-
         {{!-- Sheet Body --}}
         <section class="sheet-body ">
 
-            {{!-- Owned Talents Tab --}}
-            <div class="tab items" data-group="primary" data-tab="talent">
-                <ol class="items-list">
-                    <li class="item flexrow item-header">
-                        <div class="item-image"></div>
-                        <div class="item-name">Name</div>
-                        <div class="item-dice">Dice</div>
-                        <div class="item-dice">Mod</div>
-                        <div class="item-trait">Trait</div>
-                        <div class="item-text">Note</div>
-                        <div class="item-controls">
-                            <a class="item-control item-create" title="Create item" data-type="talent"><i
-                                    class="fas fa-plus"></i>
-                                Add</a>
+            <div class="resource flexcol flex-left cuteborder">
+                <div class="flexrow talentlist">
+                    <div class="talentlist"><h4 class="resource-label">Talents</h4></div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="Create item" data-type="talent">
+                            <i class="fas fa-plus"></i> Add</a>
+                    </div>
+                </div>
+                    <div class="flexrow ">
+                        {{#each actor.talents as |item id|}}
+                        <div class="item flexrow talentlist cuteTalentBorder" data-item-id="{{item._id}}">
+                            <div class="item-controls controlIcon">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                            <div class="ability-mod rollable talentlist"
+                                data-roll="{{item.data.talentLevel.value}};{{item.data.modif}}/{{item.data.abilitie.value}}"
+                                data-label="{{item.name}}">
+                                {{item.name}} ({{item.data.talentLevel.value}})
+                            </div>
                         </div>
-                    </li>
-                    {{#each actor.talents as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
-                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                        {{/each}}
+                    </div>
+                </p>
+            </div>
+            
+            <div class="resource flexcol flex-left cuteborder">
+                <div class="flexrow talentlist">
+                    <div class="talentlist"><h4 class="resource-label">Quirks</h4></div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="Create item" data-type="quirk">
+                            <i class="fas fa-plus"></i> Add</a>
+                    </div>
+                </div>
+                    <div class="flexrow ">
+                        {{#each actor.quirks as |item id|}}
+                        <div class="item flexrow talentlist cuteTalentBorder" data-item-id="{{item._id}}">
+                            <div class="item-controls controlIcon">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                            <span class="talentlist"> 
+                                {{item.name}}
+                        </span>
                         </div>
-                        <span class="ability-mod rollable item-name"
-                              data-roll="{{item.data.talentLevel.value}};{{item.data.modif}}/{{item.data.abilitie.value}}"
+                        {{/each}}
+                    </div>
+                </p>
+            </div>
 
-                              data-label="{{item.name}}">
-              <h4>{{item.name}}</h4>
-            </span>
-                        <h4 class="item-dice">{{item.data.talentLevel.value}}</h4>
-                        <h4 class="item-dice">{{item.data.modif}}</h4>
-                        <h4 class="item-trait">{{item.data.abilitie.value}}</h4>
-                        <div class="item-text ">{{item.data.resume}}</div>
-                        <div class="item-controls">
-                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            <div class="resource flexcol flex-left cuteborder">
+                <div class="flexrow">
+                    <div class="talentlist"><h4 class="resource-label">Items</h4></div>
+                    <div class="item-controls">
+                        <a class="item-control item-create" title="Create item" data-type="item">
+                            <i class="fas fa-plus"></i> Add</a>
+                    </div>
+                </div>
+                    <div class="flexrow ">
+                        {{#each actor.gear as |item id|}}
+                        <div class="item flexrow talentlist cuteTalentBorder" data-item-id="{{item._id}}">
+                            <div class="item-controls controlIcon">
+                                <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+                                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+                            </div>
+                            <span class="talentlist"> 
+                                {{item.data.quantity}} {{item.name}}
+                        </span>
                         </div>
-                    </li>
-                    {{/each}}
-                </ol>
+                        {{/each}}
+                    </div>
+                </p>
+            </div>
+
+            <div class="resource flexcol flex-left cuteborder">
+                <label class="resource-label">Tactics</label>
+                <textarea type="text" name="data.tactics" value="{{data.tactics}}" data-dtype="text">{{data.tactics}}</textarea>
             </div>
 
             {{!-- Owned Items Tab --}}
@@ -157,7 +190,7 @@
                     </li>
                     {{#each actor.gear as |item id|}}
                     <li class="item flexrow" data-item-id="{{item._id}}">
-                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24" />
                         </div>
                         <h4 class="item-name">{{item.name}}</h4>
                         <div class="item-text ">{{item.data.resume}}</div>
@@ -171,37 +204,6 @@
                 </ol>
             </div>
 
-            {{!-- Owned Quirks Tab --}}
-            <div class="tab items" data-group="primary" data-tab="quirks">
-                <ol class="items-list">
-                    <li class="item flexrow item-header">
-                        <div class="item-image"></div>
-                        <div class="item-name">Name</div>
-                        <div class="item-text">Note</div>
-                        <div class="item-controls">
-                            <a class="item-control item-create" title="Create quirk" data-type="quirk"><i
-                                    class="fas fa-plus"></i>
-                                Add</a>
-                        </div>
-                    </li>
-                    {{#each actor.quirks as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
-                        <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
-                        </div>
-                        <h4 class="item-name">{{item.name}}</h4>
-                        <div class="item-text ">{{item.data.resume}}
-                        </div>
-                        <div class="item-controls">
-                            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
-                            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
-                        </div>
-                    </li>
-                    {{/each}}
-                </ol>
-            </div>
-
-
-            {{!-- Biography Tab --}}
             <div class="tab biography" data-group="primary" data-tab="description">
                 {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
             </div>

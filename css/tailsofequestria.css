@@ -220,6 +220,7 @@ border: none !important;
   overflow-y: auto;
 }
 
+
 .tailsofequestria .items-list .item-header {
   font-weight: bold;
 }
@@ -269,8 +270,9 @@ border: none !important;
     text-align: center;
   }
 
-  .tailsofequestria .items-list .item-create {
+  .tailsofequestria .item-create {
     font-size: small;
+    margin-left: 2%;
   }
 
 .tailsofequestria .items-list .item-controls {
@@ -280,17 +282,35 @@ border: none !important;
   text-align: right;
 }
 
-.tailsofequestria .dice-icon {
-  height:auto !important;
-  width: 75% !important;
-  border: none ;
-  margin-left: 25%;
-  background: radial-gradient(
-    ellipse at center,
-    rgb(255, 254, 236) 0%,
-    rgb(255, 254, 236) 70%,
-    rgba(255, 255, 255, 0) 70.3%
-  );
+.tailsofequestria .talentlist{
+  flex: 0 0 auto;
+}
+.tailsofequestria .controlIcon{
+  padding-right: 1%;
+}
+
+.tailsofequestria .cuteTalentBorder{
+  border: 3px solid rgb(244, 194, 223) !important;
+  background: rgb(255, 255, 255) ;
+  border-radius: 30px;
+  margin:1px;
+  margin-bottom: 01px;
+  padding:1%
+}
+
+.tailsofequestria textarea{
+  border-radius: 10px;
+  border: 3px solid rgb(244, 194, 223) !important;
+  background: rgb(255, 255, 255);
+}
+
+.tailsofequestria select{
+  border: 3px solid rgb(244, 194, 223) !important;
+  background: rgb(255, 255, 255) ;
+  border-radius: 30px;
+  margin:1px;
+  margin-bottom: 01px;
+  padding:1%
 }
 
 .tailsofequestria .friendshiptoken {
@@ -328,6 +348,12 @@ border: none !important;
   width: 30%;
 }
 
+.characterName {
+  flex: 0 0 80% ;
+}
+.characterLevel {
+  flex : 0 0 20%;
+}
 
 .tailsofequestria .staminabox {
   border:none;
@@ -345,7 +371,6 @@ border: none !important;
   border:none;
   border-radius: 20%;
   font-size: smaller;
-  padding: 3%;
 }
 
 
@@ -353,7 +378,8 @@ border: none !important;
   border: 5px solid rgb(244, 194, 223) !important;
   background: rgb(248, 225, 231) ;
   border-radius: 30px;
-  margin-left: 5%;
+  margin: 1%;
+  padding: 1%;
 }
 
 .tailsofequestria .cuteborder input{

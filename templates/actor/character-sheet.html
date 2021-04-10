@@ -8,11 +8,11 @@
             use both the "grid" and "grid-Ncol" class where "N" can be any number
             from 1 to 12 and will create that number of columns. --}}
 
-            <div>
-                <h1 class="resource-label  flex-right flex-between ">
+            <div class="flexrow">
+                <h1 class="resource-label characterName flex-right flex-between ">
                     <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
                 </h1>
-                <div class="resource-label  flex-center flex-between cuteborder  ">
+                <div class="resource-label characterLevel flex-center flex-between cuteborder  ">
                     <label for="data.level">Level</label>
                     <input type="text" name="data.level" value="{{data.level}}" data-dtype="text" />
                 </div>
