@@ -11,6 +11,10 @@
                     <label for="data.source">Source</label>
                     <input class="reductionbox" type="text" name="data.source" value="{{data.source}}" data-dtype="text" />
                 </div>
+                <div class="flexrow flex-center flex-right cuteborder">
+                    <input type="checkbox" name="data.used" {{checked item.data.used}} />
+                    <label>Used</label>
+                </div>
             </div>
             
             <div class="grid grid-2col">

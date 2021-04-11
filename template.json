@@ -84,7 +84,8 @@
       ],
       "talentLevel": "1d6",
       "abilitie": "",
-      "modif": 0
+      "modif": 0,
+      "used": false
     },
     "reputation" : {
       "templates": [
