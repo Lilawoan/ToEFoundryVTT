@@ -90,8 +90,8 @@
       "templates": [
         "base"
       ],
-      "faction": "",
-      "level": 0
+      "level": "Neutral",
+      "modifier": "None"
     },
     "spell" : {
       "templates": [
@@ -103,13 +103,12 @@
       "templates": [
         "base"
       ],
-      "type": "",
+      "type": "Land",
       "speed": 0,
-      "handling": 0,
+      "handling": "None",
       "stability": 0,
       "armor": 0,
-      "damage": 0,
-      "price": 0,
+      "cost": 0,
       "isUnique": false,
       "isMagic": false
     }

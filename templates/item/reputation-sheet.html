@@ -1,0 +1,45 @@
+<form class="{{cssClass}} colorschemebody" autocomplete="off">
+    <header class="sheet-header">
+        <div class="header-fields colorscheme">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+            <div>
+                    <p>type : {{item.type}}</p>
+            </div>
+            <div class="grid grid-2col">
+                <div class="resource  flexcol flex-group-center  cuteborder">
+                    <label class="resource-label">Level</label>
+                    <select name="data.level">
+                        {{#select data.level}}
+                        <option value="Esteemed">Esteemed</option>
+                        <option value="Friendly">Friendly</option>
+                        <option value="Neutral">Neutral</option>
+                        <option value="Unfriendly">Unfriendly</option>
+                        <option value="Hostile">Hostile</option>
+                        {{/select}}
+                    </select> 
+                </div>
+                <div class="resource  flexcol flex-group-center  cuteborder">
+                    <label class="resource-label">Modifier</label>
+                    <select name="data.modifier">
+                        {{#select data.modifier}}
+                        <option value="Upgrade x2">Upgrade x2</option>
+                        <option value="Upgrade x1">Upgrade x1</option>
+                        <option value="None">None</option>
+                        <option value="Downgrade x1">Downgrade x1</option>
+                        <option value="Downgrade x2">Downgrade x2</option>
+                        {{/select}}
+                    </select> 
+
+                </div>
+            </div>
+
+        </div>
+    </header>
+        <section class="colorscheme">
+            <div class="resource noteitem  flex-left cuteborder">
+                <label class="resource-label">Description</label>
+                <textarea type="text" name="data.resume" value="{{data.resume}}"
+                    data-dtype="text">{{data.resume}}</textarea>
+            </div>
+        </section>
+</form>

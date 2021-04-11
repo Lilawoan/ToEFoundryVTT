@@ -1,0 +1,70 @@
+<form class="{{cssClass}} colorschemebody" autocomplete="off">
+    <header class="sheet-header">
+        <div class="header-fields colorscheme">
+            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+            <div class="flexrow flex-center">
+                <div class="cuteborder">
+                    <p>type : {{item.type}}</p>
+                </div>
+                <div class="flexrow flex-center flex-right cuteborder">
+                    <input type="checkbox" name="data.isUnique" {{checked item.data.isUnique}} />
+                    <label>Unique</label>
+                </div>
+                <div class="flexrow flex-center flex-right cuteborder">
+                    <input type="checkbox" name="data.isMagic" {{checked item.data.isMagic}} />
+                    <label>Magic</label>
+                </div>
+            </div>
+            <div class="grid grid-3col">
+                <div class="resource  flexcol flex-group-center  cuteborder">
+                    <label class="resource-label">Type</label>
+                    <select name="data.type">
+                        {{#select data.type}}
+                        <option value="Land">Land</option>
+                        <option value="Air">Air</option>
+                        <option value="Water">Water</option>
+                        <option value="Other">Other</option>
+                        {{/select}}
+                    </select> 
+                </div>
+                <div class="resource  flexcol flex-group-center  cuteborder">
+                    <label class="resource-label">Cost</label>
+                    <input type="number" name="data.cost" value="{{data.cost}}" data-dtype="Number" />
+                </div>
+                <div class="resource  flexcol flex-group-center  cuteborder">
+                    <label class="resource-label">Speed</label>
+                    <input type="number" name="data.speed" value="{{data.speed}}" data-dtype="Number" />
+                </div>
+            </div>
+            <div class="grid grid-3col">
+                <div class="resource  flexcol flex-group-center  cuteborder">
+                    <label class="resource-label">Handling</label>
+                    <select name="data.handling">
+                        {{#select data.handling}}
+                        <option value="Upgrade x2">Upgrade x2</option>
+                        <option value="Upgrade x1">Upgrade x1</option>
+                        <option value="None">None</option>
+                        <option value="Downgrade x1">Downgrade x1</option>
+                        <option value="Downgrade x2">Downgrade x2</option>
+                        {{/select}}
+                    </select>                 </div>
+                <div class="resource  flexcol flex-group-center  cuteborder">
+                    <label class="resource-label">Stability</label>
+                    <input type="number" name="data.stability" value="{{data.stability}}" data-dtype="Number" />
+
+                </div>
+                <div class="resource  flexcol flex-group-center  cuteborder">
+                    <label class="resource-label">Armor</label>
+                    <input type="number" name="data.armor" value="{{data.armor}}" data-dtype="Number" />
+                </div>
+            </div>
+        </div>
+    </header>
+        <section class="colorscheme">
+            <div class="resource noteitem  flex-left cuteborder">
+                <label class="resource-label">Description</label>
+                <textarea type="text" name="data.resume" value="{{data.resume}}"
+                    data-dtype="text">{{data.resume}}</textarea>
+            </div>
+        </section>
+</form>
