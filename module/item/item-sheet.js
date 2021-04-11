@@ -9,7 +9,7 @@ export class TailsofequestriaItemSheet extends ItemSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["tailsofequestria", "sheet", "item"],
       width: 600,
-      height: 400,
+      height: 500,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
   }

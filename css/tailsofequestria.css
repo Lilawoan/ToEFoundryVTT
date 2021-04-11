@@ -183,7 +183,7 @@
 .tailsofequestria .sheet-body,
 .tailsofequestria .sheet-body .tab,
 .tailsofequestria .sheet-body .tab .editor {
-  height: 200px;
+  height: auto;
 }
 
 .tailsofequestria .tox .tox-editor-container {
@@ -302,6 +302,7 @@ border: none !important;
   border-radius: 10px;
   border: 3px solid rgb(244, 194, 223) !important;
   background: rgb(255, 255, 255);
+  height: auto;
 }
 
 .tailsofequestria select{
@@ -346,6 +347,13 @@ border: none !important;
   margin-left: 35%;
   margin-bottom: 20%;
   width: 30%;
+}
+
+.tailsofequestria .noteitem{
+  height: 200px;
+}
+.tailsofequestria .noteitem textarea{
+  height: 150px;
 }
 
 .characterName {

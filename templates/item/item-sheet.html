@@ -29,28 +29,18 @@
                     <input type="text" name="data.price" value="{{data.price}}" data-dtype="Number" />
                 </div>
             </div>
-            <div class="resource  flexcol flex-group-center  cuteborder">
-                <label class="resource-label">Notes</label>
-                <input type="text" name="data.resume" value="{{data.resume}}" data-dtype="text" />
-            </div>
+           
         </div>
     </header>
 
     <div class="colorscheme">
-        {{!-- Sheet Tab Navigation --}}
-        <nav class="sheet-tabs tabs" data-group="primary">
-            <a class="item cutenav" data-tab="description">Description</a>
-            <a class="item " data-tab="attributes"></a>
-        </nav>
 
-        {{!-- Sheet Body --}}
-        <section class="sheet-body ">
-
-            {{!-- Description Tab --}}
-            <div class="tab" data-group="primary" data-tab="description">
-                {{editor content=data.description target="data.description" button=true owner=owner editable=editable}}
+        <section>
+            <div class="resource noteitem  flex-left cuteborder">
+                <label class="resource-label">Notes</label>
+                <textarea type="text" name="data.resume" value="{{data.resume}}"
+                    data-dtype="text">{{data.resume}}</textarea>
             </div>
-
         </section>
     </div>
 </form>
