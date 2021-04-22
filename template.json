@@ -83,8 +83,28 @@
         "base"
       ],
       "talentLevel": "1d6",
-      "abilitie": "",
       "modif": 0,
+      "usePer":{
+        "numberOfUse":"",
+        "maxValue":"",
+        "period":""
+      },
+      "ability": {
+        "value":"0"
+      },
+      "poolPoint": {
+        "isUsed":false,
+        "value":"",
+        "maxValue": ""
+      },
+      "dicePool": {
+        "isUsed":false,
+        "value":""
+      },
+      "addition": {
+        "isUsed":false,
+        "value":""
+      },
       "used": false
     },
     "reputation" : {

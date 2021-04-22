@@ -150,6 +150,7 @@
   width: 30%;
   margin-right: 10px;
   border:none;
+  max-height: 300px
 
 }
 
@@ -368,6 +369,7 @@ border: none !important;
   font-size: x-large;
   padding-left: 20%;
   padding-right: 20%;
+  width: auto;
 }
 
 .tailsofequestria .reductionbox{
@@ -379,6 +381,7 @@ border: none !important;
   border:none;
   border-radius: 20%;
   font-size: smaller;
+  min-width: 30px;
 }
 
 
