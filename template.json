@@ -11,10 +11,7 @@
           "value": 10,
           "min": 0,
           "max": 10,
-          "damageReduction": {
-            "value": 0,
-            "min": 0
-          }
+          "damageReduction":0
         },
         "abilities": {
           "body": {
