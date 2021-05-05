@@ -8,8 +8,8 @@ export class TailsofequestriaItemSheet extends ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["tailsofequestria", "sheet", "item"],
-      width: 600,
-      height: 500,
+      width: 500,
+      height: 400,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }]
     });
   }

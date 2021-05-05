@@ -22,34 +22,34 @@
                 <div>
                     <div class="resource  flexcol flex-group-center  cuteborder">
                         <label class="resource-label">Trait</label>
-                        <select name="data.abilitie.value">
-                            {{#select data.abilitie.value}}
+                        <select name="data.ability.value">
+                            {{#select data.ability.value}}
                             <option value="body">body</option>
                             <option value="mind">mind</option>
                             <option value="charm">charm</option>
-                            <option value="0">none</option>
+                            <option value="">none</option>
                             {{/select}}
                         </select>
                     </div>
 
-                    <div class="resource flex-row flex-group-center cuteborder">
-                        <div class="flexrow"> 
+                    <div class="resource flex-row cuteborder">
+                        <div class="flexrow flex-group-center"> 
                             <label class="resource-label">Use per</label>
-                            <select name="data.abilitie.usePer.period ">
-                                {{#select data.abilitie.usePer.period}}
+                            <select name="data.usePer.period ">
+                                {{#select data.usePer.period}}
                                 <option value="day">day</option>
                                 <option value="week">week</option>
                                 <option value="session">session</option>
-                                <option value="none">none</option>
+                                <option value="">none</option>
                                 {{/select}}
                             </select>
                         </div>
-                        <div class=" staminabox resource-content flexrow flex-center flex-between">
-                            <input class="staminatextbox" type="text" name="data.abilitie.usePer.numberOfUse"
-                            value="{{data.abilitie.usePer.numberOfUse}}" data-dtype="Number" />
+                        <div class=" resource-content flexrow flex-center flex-between">
+                            <input type="text" name="data.usePer.numberOfUse"
+                            value="{{data.usePer.numberOfUse}}" data-dtype="Number" />
                         <span> / </span>
-                        <input class="staminatextbox" type="text" name="data.abilitie.usePer.maxValue"
-                            value="{{data.abilitie.usePer.maxValue}}" data-dtype="Number" />
+                        <input type="text" name="data.usePer.maxValue"
+                            value="{{data.usePer.maxValue}}" data-dtype="Number" />
                         </div>
                     </div>
                 </div>
@@ -81,15 +81,15 @@
             <div class="flexrow">
                 <div class="resource  flexcol flex-group-center cuteborder">
                     <div class="flexrow">
-                        <input type="checkbox" name="data.poolpoint.isUsed" {{checked item.data.poolpoint.isUsed}} />
-                        <label for="data.poolpoint.value">Points pool</label>
+                        <input type="checkbox" name="data.poolPoint.isUsed" {{checked item.data.poolPoint.isUsed}} />
+                        <label for="data.poolPoint.value">Points pool</label>
                     </div>
                     <div class=" staminabox resource-content flexrow flex-center flex-between">
-                        <input class="staminatextbox" type="text" name="data.poolpoint.value"
-                        value="{{data.poolpoint.value}}" data-dtype="Number" />
+                        <input class="staminatextbox" type="text" name="data.poolPoint.value"
+                        value="{{data.poolPoint.value}}" data-dtype="Number" />
                     <span> / </span>
-                    <input class="staminatextbox" type="text" name="data.poolpoint.maxValue"
-                        value="{{data.poolpoint.maxValue}}" data-dtype="Number" />
+                    <input class="staminatextbox" type="text" name="data.poolPoint.maxValue"
+                        value="{{data.poolPoint.maxValue}}" data-dtype="Number" />
                     </div>
                 </div>
                 <div class="resource  flexcol flex-group-center cuteborder">
