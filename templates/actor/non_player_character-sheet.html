@@ -111,15 +111,15 @@
 
         {{!-- Sheet Tab Navigation --}}
         <nav class="sheet-tabs tabs cutenavposition flexcol flex-group-center" data-group="primary">
-            <a class="cutenav item" data-tab="talents"><i class="fas fa-star"></i></a>
-            <a class="cutenav item" data-tab="items"><i class="fas fa-shopping-bag"></i></a>
-            <a class="cutenav item" data-tab="reputations"><i class="fas fa-heart"></i></a>
-            <a class="cutenav item" data-tab="description"><i class="fas fa-horse-head"></i></a>
+            <a class="cutenav cutenavIcon item" data-tab="talents"><i class="fas fa-star"></i></a>
+            <a class="cutenav cutenavIcon item" data-tab="items"><i class="fas fa-shopping-bag"></i></a>
+            <a class="cutenav cutenavIcon item" data-tab="reputations"><i class="fas fa-heart"></i></a>
+            <a class="cutenav cutenavIcon item" data-tab="description"><i class="fas fa-horse-head"></i></a>
         </nav>
 
         <div class="cutebigtab talentsheet">
             {{!-- Sheet Body --}}
-            <section class="sheet-body ">
+            <section class="sheet-body">
 
                 {{!-- Owned Talents Tab --}}
                 <div class="tab items" data-group="primary" data-tab="talents">
@@ -128,7 +128,7 @@
                             <h2 class="resource-label borderBottom">Talents</h2>
                         </div>
                         <div class="item-controls">
-                            <p class="  flex-group-right"><a class="item-create" title="Create item" data-type="talent">
+                            <p class="  flex-group-left"><a class="item-create" title="Create item" data-type="talent">
                                     <i class="fas fa-plus"></i> Add</a></p>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
                             <h2 class="resource-label borderBottom">Inventory</h2>
                         </div>
                         <div class="item-controls">
-                            <p class=" flex-group-right"><a class="item-create" title="Create item" data-type="item">
+                            <p class=" flex-group-left"><a class="item-create" title="Create item" data-type="item">
                                     <i class="fas fa-plus"></i> Add</a></p>
                         </div>
                     </div>
@@ -211,7 +211,7 @@
                             <h2 class="resource-label borderBottom">Reputations</h2>
                         </div>
                         <div class="item-controls">
-                            <p class="  flex-group-right"><a class="item-create" title="Create item"
+                            <p class="  flex-group-left"><a class="item-create" title="Create item"
                                     data-type="reputation">
                                     <i class="fas fa-plus"></i> Add</a></p>
                         </div>

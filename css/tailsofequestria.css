@@ -189,7 +189,7 @@
 .tailsofequestria .sheet-body .tab,
 .tailsofequestria .sheet-body .tab .editor {
   height: auto;
-  min-height: 200px;
+  min-height: 50px;
 }
 
 .tailsofequestria .tox .tox-editor-container {
@@ -332,6 +332,7 @@ border: none !important;
   border: 5px solid rgb(244, 194, 223) ;
   background: rgb(255, 248, 225) ;
   border-radius: 30px;
+  padding: 5px;
 }
 
 .tailsofequestria .cutenavposition{
@@ -348,11 +349,22 @@ border: none !important;
   background: radial-gradient( ellipse at center, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 70%, rgba(224, 187, 228, 0) 70.3% );
     border: 5px solid rgb(244, 194, 223) !important;
     border-radius: 100%;
-    width: 40px;
-    height: 40px;
     margin-top: 2px;
     text-align: center;
+}
+
+
+.tailsofequestria .cutenavIcon {
+    width: 40px;
+    height: 40px;
     vertical-align: middle;
+}
+
+.tailsofequestria .cutenavText {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: none;
+  margin-bottom: none;
 }
 
 
@@ -409,11 +421,11 @@ border: none !important;
   width: 80%;
 }
 
-.dataheight{
+.tailsofequestria .dataheight{
   height: 50px;
 }
 
-.talentsheet{
+.tailsofequestria .talentsheet{
   width:auto;
   min-width: 340px;
   margin-left: 19px;

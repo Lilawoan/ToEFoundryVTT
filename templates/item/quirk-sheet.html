@@ -1,27 +1,33 @@
-<form class="{{cssClass}} colorschemebody" autocomplete="off">
-    <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-        <div class="header-fields colorscheme">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
-            <div class="flexrow flex-center">
-                <div class="cuteborder">
-                    <p>type : {{item.type}}</p>
-                </div>
-                <div class="flexrow flex-center flex-right cuteborder">
-                    <label for="data.source">Source</label>
-                    <input class="reductionbox" type="text" name="data.source" value="{{data.source}}" data-dtype="text" />
+<form class="{{cssClass}} colorscheme" autocomplete="off">
+    <header>
+        <div class="cutebigtab">
+            <div class="flexrow">
+                <div class="flex-group-center"> <img class="item-img" src="{{item.img}}" data-edit="img"
+                        title="{{item.name}}"/></div>
+                <div class="item-header ">
+                    <h1 class="resource-label sheet-name flex-right flex-between">
+                        <input class="borderBottom" name="name" type="text" value="{{item.name}}" placeholder="Name" />
+                    </h1>
+                    <div class="flexrow">
+                        <div class="cuteborder ">
+                            <p>type : {{item.type}}</p>
+                        </div>
+                        <div class="flexrow flex-center flex-right cuteborder">
+                            <label for="data.source">Source</label>
+                            <input class="reductionbox" type="text" name="data.source" value="{{data.source}}"
+                                data-dtype="text" />
+                        </div>
+                    </div>
                 </div>
             </div>
-         
         </div>
     </header>
 
     <div class="colorscheme">
-
-        <section>
-            <div class="resource noteitem  flex-left cuteborder">
+        <section  class="cutebigtab">
+            <div class="resource noteitem flexcol  flex-left cuteborder">
                 <label class="resource-label">Description</label>
-                <textarea type="text" name="data.resume" value="{{data.data.resume}}"
+                <textarea type="text" name="data.resume" value="{{data.resume}}"
                     data-dtype="text">{{data.resume}}</textarea>
             </div>
         </section>

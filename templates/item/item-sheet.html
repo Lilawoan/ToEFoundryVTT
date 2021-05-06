@@ -2,8 +2,7 @@
     <header>
         <div class="cutebigtab">
             <div class="flexrow">
-                <div class="flex-group-center"> <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" height="auto"
-                        width="100" /></div>
+                <div class="flex-group-center"> <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" /></div>
                 <div class="item-header ">
                     <h1 class="resource-label sheet-name flex-right flex-between">
                         <input class="borderBottom" name="name" type="text" value="{{item.name}}" placeholder="Name" />
@@ -37,11 +36,62 @@
     </header>
 
     <div class="colorscheme">
-        <section>
-            <div class="resource noteitem  flex-left cuteborder">
-                <label class="resource-label">Description</label>
-                <textarea type="text" name="data.resume" value="{{data.resume}}"
-                    data-dtype="text">{{data.resume}}</textarea>
+        {{!-- Sheet Tab Navigation --}}
+        <nav class="sheet-tabs tabs flexrow flex-group-center" data-group="primary">
+            <a class="cutenav cutenavText item" data-tab="description"> Description</i></a>
+            <a class="cutenav cutenavText item" data-tab="vehicle"> Vehicle</i></a>
+        </nav>
+
+
+        <section class="cutebigtab sheet-body">
+            <div class="tab items" data-group="primary" data-tab="description">
+                <div class="resource noteitem  flex-left cuteborder">
+                    <label class="resource-label">Description</label>
+                    <textarea type="text" name="data.resume" value="{{data.resume}}"
+                        data-dtype="text">{{data.resume}}</textarea>
+                </div>
+            </div>
+
+            <div class="tab items" data-group="primary" data-tab="vehicle">
+                <div class="grid grid-2col">
+                    <div class="resource  flexcol flex-group-center  cuteborder">
+                        <label class="resource-label">Type</label>
+                        <select name="data.vehicle.type">
+                            {{#select data.vehicle.type}}
+                            <option value="Land">Land</option>
+                            <option value="Air">Air</option>
+                            <option value="Water">Water</option>
+                            <option value="Other">Other</option>
+                            {{/select}}
+                        </select> 
+                    </div>
+                    <div class="resource  flexcol flex-group-center  cuteborder">
+                        <label class="resource-label">Speed</label>
+                        <input type="number" name="data.vehicle.speed" value="{{data.vehicle.speed}}" data-dtype="Number" />
+                    </div>
+                </div>
+                <div class="grid grid-3col">
+                    <div class="resource  flexcol flex-group-center  cuteborder">
+                        <label class="resource-label">Handling</label>
+                        <select name="data.vehicle.handling">
+                            {{#select data.vehicle.handling}}
+                            <option value="Upgrade x2">Upgrade x2</option>
+                            <option value="Upgrade x1">Upgrade x1</option>
+                            <option value="None">None</option>
+                            <option value="Downgrade x1">Downgrade x1</option>
+                            <option value="Downgrade x2">Downgrade x2</option>
+                            {{/select}}
+                        </select>                 </div>
+                    <div class="resource  flexcol flex-group-center  cuteborder">
+                        <label class="resource-label">Stability</label>
+                        <input type="number" name="data.vehicle.stability" value="{{data.vehicle.stability}}" data-dtype="Number" />
+    
+                    </div>
+                    <div class="resource  flexcol flex-group-center  cuteborder">
+                        <label class="resource-label">Armor</label>
+                        <input type="number" name="data.vehicle.armor" value="{{data.vehicle.armor}}" data-dtype="Number" />
+                    </div>
+                </div>
             </div>
         </section>
     </div>

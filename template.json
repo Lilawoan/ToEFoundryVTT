@@ -68,7 +68,14 @@
       "quantity": 1,
       "price": 0,
       "isUnique": false,
-      "isMagic": false
+      "isMagic": false,
+      "vehicle": {
+        "type": "Land",
+        "speed": 0,
+        "handling": "None",
+        "stability": 0,
+        "armor": 0
+      }
     },
     "quirk": {
       "templates": [
@@ -116,19 +123,7 @@
         "base"
       ],
       "difficulty": 0
-    },
-    "vehicle": {
-      "templates": [
-        "base"
-      ],
-      "type": "Land",
-      "speed": 0,
-      "handling": "None",
-      "stability": 0,
-      "armor": 0,
-      "cost": 0,
-      "isUnique": false,
-      "isMagic": false
     }
+
   }
 }
