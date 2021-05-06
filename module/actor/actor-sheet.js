@@ -188,7 +188,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
             roll = roll + jet1[0];
         }
         //get the dice for the additionnal roll
-        if (jet2carac !== "0") {
+        if (jet2carac !== "") {
             jet2.push(this.actor.data.data.abilities[jet2carac].value);
             jet2.push(this.actor.data.data.abilities[jet2carac].modif);
             if (jet2[1] !== "0") {
@@ -291,13 +291,13 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         let falseroll = "{" + poolExplosive.join();
 
         //get the dice for the additionnal roll
-        if (jet2carac !== "0") {
+        if (jet2carac !== "") {
             jet2.push(this.actor.data.data.abilities[jet2carac].value);
             jet2.push(this.actor.data.data.abilities[jet2carac].modif);
             let jet2explosive = [];
             let pool2explosive = [];
 
-            if (jet2[0] !== "0") {
+            if (jet2[0] !== "") {
 
                 if (jet2[1] !== "0") {
                     jet2mod = this._applyModifier(jet2);
