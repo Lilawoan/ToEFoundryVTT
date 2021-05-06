@@ -1,74 +1,77 @@
-<form class="{{cssClass}} colorschemebody" autocomplete="off">
-    <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
-        <div class="header-fields colorscheme">
-            <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
-            <div class="flexrow flex-center">
-                <div class="cuteborder">
-                    <p>type : {{item.type}}</p>
-                </div>
-                <div class="flexrow flex-center flex-right cuteborder">
-                    <label for="data.source">Source</label>
-                    <input class="reductionbox" type="text" name="data.source" value="{{data.source}}"
-                        data-dtype="text" />
-                </div>
-                <div class="flexrow flex-center flex-right cuteborder">
-                    <input type="checkbox" name="data.used" {{checked item.data.used}} />
-                    <label>Used</label>
-                </div>
-            </div>
-
-            <div class="grid grid-2col">
-                <div>
-                    <div class="resource  flexcol flex-group-center  cuteborder">
-                        <label class="resource-label">Trait</label>
-                        <select name="data.abilitie.value">
-                            {{#select data.abilitie.value}}
-                            <option value="body">body</option>
-                            <option value="mind">mind</option>
-                            <option value="charm">charm</option>
-                            <option value="0">none</option>
-                            {{/select}}
-                        </select>
+<form class="{{cssClass}} colorscheme" autocomplete="off">
+    <header>
+        <div class="cutebigtab">
+            <div class="flexrow">
+                <div class="flex-group-center"> <img class="item-img" src="{{item.img}}" data-edit="img"
+                        title="{{item.name}}" /></div>
+                <div class="item-header ">
+                    <h1 class="resource-label sheet-name flex-right flex-between">
+                        <input class="borderBottom" name="name" type="text" value="{{item.name}}" placeholder="Name" />
+                    </h1>
+                    <div class="flexrow flex-center">
+                        <div class="flexrow flex-center flex-right cuteborder">
+                            <label for="data.source">Source</label>
+                            <input class="reductionbox" type="text" name="data.source" value="{{data.source}}"
+                                data-dtype="text" />
+                        </div>
+                        <div class="flexrow flex-center flex-right cuteborder">
+                            <input type="checkbox" name="data.used" {{checked item.data.used}} />
+                            <label>Used</label>
+                        </div>
                     </div>
+                    <div class="grid grid-2col">
+                        <div>
+                            <div class="resource  flexcol flex-group-center  cuteborder">
+                                <label class="resource-label">Trait</label>
+                                <select name="data.ability.value">
+                                    {{#select data.ability.value}}
+                                    <option value="body">body</option>
+                                    <option value="mind">mind</option>
+                                    <option value="charm">charm</option>
+                                    <option value="">none</option>
+                                    {{/select}}
+                                </select>
+                            </div>
 
-                    <div class="resource flex-row flex-group-center cuteborder">
-                        <div class="flexrow"> 
-                            <label class="resource-label">Use per</label>
-                            <select name="data.abilitie.usePer.period ">
-                                {{#select data.abilitie.usePer.period}}
-                                <option value="day">day</option>
-                                <option value="week">week</option>
-                                <option value="session">session</option>
-                                <option value="none">none</option>
+                            <div class="resource flex-row cuteborder">
+                                <div class="flexrow flex-group-center">
+                                    <label class="resource-label">Use per</label>
+                                    <select name="data.usePer.period ">
+                                        {{#select data.usePer.period}}
+                                        <option value="day">day</option>
+                                        <option value="week">week</option>
+                                        <option value="session">session</option>
+                                        <option value="">none</option>
+                                        {{/select}}
+                                    </select>
+                                </div>
+                                <div class=" resource-content flexrow flex-center flex-between">
+                                    <input type="text" name="data.usePer.numberOfUse"
+                                        value="{{data.usePer.numberOfUse}}" data-dtype="Number" />
+                                    <span> / </span>
+                                    <input type="text" name="data.usePer.maxValue" value="{{data.usePer.maxValue}}"
+                                        data-dtype="Number" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resource  flexcol flex-group-center  cuteborder">
+                            <label class="resource-label">Level</label>
+                            <select name="data.talentLevel.value">
+                                {{#select data.talentLevel.value}}
+                                <option value="1d4">1d4</option>
+                                <option value="1d6">1d6</option>
+                                <option value="1d8">1d8</option>
+                                <option value="1d10">1d10</option>
+                                <option value="1d12">1d12</option>
+                                <option value="1d20">1d20</option>
                                 {{/select}}
                             </select>
+                            <div class="resource-content flex flex-row flex-right flex-between">
+                                <label for="data.modif">Modifier</label>
+                                <input class="reductionbox" type="number" name="data.modif" value="{{data.modif}}"
+                                    data-dtype="Number" />
+                            </div>
                         </div>
-                        <div class=" staminabox resource-content flexrow flex-center flex-between">
-                            <input class="staminatextbox" type="text" name="data.abilitie.usePer.numberOfUse"
-                            value="{{data.abilitie.usePer.numberOfUse}}" data-dtype="Number" />
-                        <span> / </span>
-                        <input class="staminatextbox" type="text" name="data.abilitie.usePer.maxValue"
-                            value="{{data.abilitie.usePer.maxValue}}" data-dtype="Number" />
-                        </div>
-                    </div>
-                </div>
-                <div class="resource  flexcol flex-group-center  cuteborder">
-                    <label class="resource-label">Level</label>
-                    <select name="data.talentLevel.value">
-                        {{#select data.talentLevel.value}}
-                        <option value="1d4">1d4</option>
-                        <option value="1d6">1d6</option>
-                        <option value="1d8">1d8</option>
-                        <option value="1d10">1d10</option>
-                        <option value="1d12">1d12</option>
-                        <option value="1d20">1d20</option>
-                        {{/select}}
-                    </select>
-                    <div class="resource-content flex flex-row flex-right flex-between">
-                        <label for="data.modif">Modifier</label>
-                        <input class="reductionbox" type="number" name="data.modif" value="{{data.modif}}"
-                            data-dtype="Number" />
                     </div>
                 </div>
             </div>
@@ -76,44 +79,55 @@
     </header>
 
     <div class="colorscheme">
+        {{!-- Sheet Tab Navigation --}}
+        <nav class="sheet-tabs tabs flexrow flex-group-center" data-group="primary">
+            <a class="cutenav cutenavText item" data-tab="description"> Description</i></a>
+            <!-- <a class="cutenav cutenavText item" data-tab="knowledge"> knowledge</i></a> -->
+        </nav>
 
-        <section>
-            <div class="flexrow">
-                <div class="resource  flexcol flex-group-center cuteborder">
-                    <div class="flexrow">
-                        <input type="checkbox" name="data.poolpoint.isUsed" {{checked item.data.poolpoint.isUsed}} />
-                        <label for="data.poolpoint.value">Points pool</label>
+
+        <section class="cutebigtab sheet-body">
+            <div class="tab items" data-group="primary" data-tab="description">
+                <div class="flexrow">
+                    <div class="resource  flexcol flex-group-center cuteborder">
+                        <div class="flexrow">
+                            <input type="checkbox" name="data.poolPoint.isUsed" {{checked item.data.poolPoint.isUsed}} />
+                            <label for="data.poolPoint.value">Points pool</label>
+                        </div>
+                        <div class=" staminabox resource-content flexrow flex-center flex-between">
+                            <input class="staminatextbox" type="text" name="data.poolPoint.value"
+                            value="{{data.poolPoint.value}}" data-dtype="Number" />
+                        <span> / </span>
+                        <input class="staminatextbox" type="text" name="data.poolPoint.maxValue"
+                            value="{{data.poolPoint.maxValue}}" data-dtype="Number" />
+                        </div>
                     </div>
-                    <div class=" staminabox resource-content flexrow flex-center flex-between">
-                        <input class="staminatextbox" type="text" name="data.poolpoint.value"
-                        value="{{data.poolpoint.value}}" data-dtype="Number" />
-                    <span> / </span>
-                    <input class="staminatextbox" type="text" name="data.poolpoint.maxValue"
-                        value="{{data.poolpoint.maxValue}}" data-dtype="Number" />
+                    <div class="resource  flexcol flex-group-center cuteborder">
+                        <div class="flexrow">
+                            <input type="checkbox" name="data.dicePool.isUsed" {{checked item.data.dicePool.isUsed}} />
+                            <label for="data.dicePool.value">Dice pool</label>
+                        </div>
+                        <div>
+                            <input class="reductionbox" type="number" name="data.dicePool.value"
+                                value="{{data.dicePool.value}}" data-dtype="Number" />
+                        </div>
+                    </div>
+                    <div class="resource  flexcol flex-group-center cuteborder">
+                        <div class="flex">
+                            <input type="checkbox" name="data.addition.isUsed" {{checked item.data.addition.isUsed}} />
+                            <label">Addition (not working yet)</label>
+                        </div>
                     </div>
                 </div>
-                <div class="resource  flexcol flex-group-center cuteborder">
-                    <div class="flexrow">
-                        <input type="checkbox" name="data.dicePool.isUsed" {{checked item.data.dicePool.isUsed}} />
-                        <label for="data.dicePool.value">Dice pool</label>
-                    </div>
-                    <div>
-                        <input class="reductionbox" type="number" name="data.dicePool.value"
-                            value="{{data.dicePool.value}}" data-dtype="Number" />
-                    </div>
+                <div class="resource noteitem  flex-left cuteborder">
+                    <label class="resource-label">Description</label>
+                    <textarea type="text" name="data.resume" value="{{data.data.resume}}"
+                        data-dtype="text">{{data.resume}}</textarea>
                 </div>
-                <div class="resource  flexcol flex-group-center cuteborder">
-                    <div class="flex">
-                        <input type="checkbox" name="data.addition.isUsed" {{checked item.data.addition.isUsed}} />
-                        <label">Addition (not working yet)</label>
-                    </div>
-                </div>
-            </div>
-            <div class="resource noteitem  flex-left cuteborder">
-                <label class="resource-label">Description</label>
-                <textarea type="text" name="data.resume" value="{{data.data.resume}}"
-                    data-dtype="text">{{data.resume}}</textarea>
-            </div>
+
+            <!-- <div class="tab items" data-group="primary" data-tab="knowledge">
+              
+            </div> -->
         </section>
     </div>
 </form>

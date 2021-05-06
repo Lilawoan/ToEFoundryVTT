@@ -33,6 +33,8 @@ Hooks.once('init', async function() {
   Items.registerSheet("Item", TailsofequestriaItemSheet, { makeDefault: false });
   Items.registerSheet("quirk", TailsofequestriaItemSheet, { makeDefault: true });
   Items.registerSheet("talent", TailsofequestriaItemSheet, { makeDefault: true });
+  Items.registerSheet("reputation", TailsofequestriaItemSheet, { makeDefault: true });
+
 
 
   // If you need to add Handlebars helpers, here are a few useful examples:

@@ -8,7 +8,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["tailsofequestria", "sheet", "actor"],
-            width: 700,
+            width: 750,
             height: 600,
             tabs: [{
                 navSelector: ".sheet-tabs",
@@ -52,6 +52,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         const gear = [];
         const quirks = [];
         const talents = [];
+        const reputations = [];
 
         // Iterate through items, allocating to containers
         // let totalWeight = 0;
@@ -70,12 +71,16 @@ export class TailsofequestriaActorSheet extends ActorSheet {
             else if (i.type === 'talent') {
                 talents.push(i);
             }
+            else if (i.type === 'reputation') {
+                reputations.push(i);
+            }
         }
 
         // Assign and return
         actorData.gear = gear;
         actorData.quirks = quirks;
         actorData.talents = talents;
+        actorData.reputations = reputations;
     }
 
     /* -------------------------------------------- */
@@ -96,6 +101,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
             const item = this.actor.getOwnedItem(li.data("itemId"));
             item.sheet.render(true);
         });
+
 
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
@@ -171,6 +177,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         const jet = lancer.split('/');
         const jet1 = jet[0].split(';');
         let jet2 = [];
+        let jet2mod
         const jet2carac = jet[1]
         let roll = '{';
         //if the dice are modified
@@ -181,11 +188,11 @@ export class TailsofequestriaActorSheet extends ActorSheet {
             roll = roll + jet1[0];
         }
         //get the dice for the additionnal roll
-        if (jet2carac !== "0") {
+        if (jet2carac !== "") {
             jet2.push(this.actor.data.data.abilities[jet2carac].value);
             jet2.push(this.actor.data.data.abilities[jet2carac].modif);
             if (jet2[1] !== "0") {
-                let jet2mod = this._applyModifier(jet2);
+                jet2mod = this._applyModifier(jet2);
                 roll = roll + ',' + jet2mod.join();
             } else {
                 roll = roll + ',' + jet2[0];
@@ -264,6 +271,8 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         const jet2carac = jet[1]
 
         let jet1mod = [];
+        let jet2mod = [];
+
         //if the dice are modified
         if (jet1[1] !== "0") {
             jet1mod = this._applyModifier(jet1);
@@ -282,20 +291,20 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         let falseroll = "{" + poolExplosive.join();
 
         //get the dice for the additionnal roll
-        if (jet2carac !== "0") {
+        if (jet2carac !== "") {
             jet2.push(this.actor.data.data.abilities[jet2carac].value);
             jet2.push(this.actor.data.data.abilities[jet2carac].modif);
             let jet2explosive = [];
             let pool2explosive = [];
 
-            if (jet2[0] !== "0") {
+            if (jet2[0] !== "") {
 
                 if (jet2[1] !== "0") {
-                    pool2explosive = this._applyModifier(jet2);
+                    jet2mod = this._applyModifier(jet2);
                 } else {
                     pool2explosive = jet2[0].split(',')
                 }
-                pool2explosive = jet2mod;
+                    pool2explosive =jet2mod;
                 //apply add the explosive dice result to the roll
                 jet2mod.forEach(element => {
                     let dice = this._applyExplosive(element);
