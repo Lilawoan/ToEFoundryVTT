@@ -98,7 +98,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         // Update Inventory Item
         html.find('.item-edit').click(ev => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
             item.sheet.render(true);
         });
 
@@ -148,9 +148,10 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         delete itemData.data['type'];
 
         // Finally, create the item!
-        return this.actor.createOwnedItem(itemData, {
-            renderSheet: true
-        });
+        return this.actor.createEmbeddedDocuments("Item", [itemData], {renderSheet: true });
+//        return this.actor.createOwnedItem(itemData, {
+//            renderSheet: true
+//        });
     }
 
     /**
@@ -204,7 +205,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
             let rolling = new Roll(roll, this.actor.data.data);
             console.log(rolling);
             let label = dataset.label ? `Rolling ${dataset.label}` : '';
-            rolling.roll().toMessage({
+            rolling.toMessage({
                 speaker: ChatMessage.getSpeaker({
                     actor: this.actor
                 }),

@@ -10,8 +10,8 @@
                     </h1>
                     <div class="flexrow flex-center">
                         <div class="flexrow flex-center flex-right cuteborder">
-                            <label for="data.source">Source</label>
-                            <input class="reductionbox" type="text" name="data.source" value="{{data.source}}"
+                            <label for="data.data.source">Source</label>
+                            <input class="reductionbox" type="text" name="data.source" value="{{data.data.source}}"
                                 data-dtype="text" />
                         </div>
                         <div class="flexrow flex-center flex-right cuteborder">
@@ -24,7 +24,7 @@
                             <div class="resource  flexcol flex-group-center  cuteborder">
                                 <label class="resource-label">Trait</label>
                                 <select name="data.ability.value">
-                                    {{#select data.ability.value}}
+                                    {{#select data.data.ability.value}}
                                     <option value="body">body</option>
                                     <option value="mind">mind</option>
                                     <option value="charm">charm</option>
@@ -37,7 +37,7 @@
                                 <div class="flexrow flex-group-center">
                                     <label class="resource-label">Trait</label>
                                     <select name="data.usePer.period">
-                                        {{#select data.usePer.period}}
+                                        {{#select data.data.usePer.period}}
                                         <option value="day">day</option>
                                         <option value="week">week</option>
                                         <option value="session">session</option>
@@ -47,9 +47,9 @@
                                 </div>
                                 <div class=" resource-content flexrow flex-center flex-between">
                                     <input type="text" name="data.usePer.numberOfUse"
-                                        value="{{data.usePer.numberOfUse}}" data-dtype="Number" />
+                                        value="{{data.data.usePer.numberOfUse}}" data-dtype="Number" />
                                     <span> / </span>
-                                    <input type="text" name="data.usePer.maxValue" value="{{data.usePer.maxValue}}"
+                                    <input type="text" name="data.usePer.maxValue" value="{{data.data.usePer.maxValue}}"
                                         data-dtype="Number" />
                                 </div>
                             </div>
@@ -67,8 +67,8 @@
                                 {{/select}}
                             </select>
                             <div class="resource-content flex flex-row flex-right flex-between">
-                                <label for="data.modif">Modifier</label>
-                                <input class="reductionbox" type="number" name="data.modif" value="{{data.modif}}"
+                                <label for="data.data.modif">Modifier</label>
+                                <input class="reductionbox" type="number" name="data.modif" value="{{data.data.modif}}"
                                     data-dtype="Number" />
                             </div>
                         </div>
@@ -92,24 +92,24 @@
                     <div class="resource  flexcol flex-group-center cuteborder">
                         <div class="flexrow">
                             <input type="checkbox" name="data.poolPoint.isUsed" {{checked item.data.poolPoint.isUsed}} />
-                            <label for="data.poolPoint.value">Points pool</label>
+                            <label for="data.data.poolPoint.value">Points pool</label>
                         </div>
                         <div class=" staminabox resource-content flexrow flex-center flex-between">
                             <input class="staminatextbox" type="text" name="data.poolPoint.value"
-                            value="{{data.poolPoint.value}}" data-dtype="Number" />
+                            value="{{data.data.poolPoint.value}}" data-dtype="Number" />
                         <span> / </span>
                         <input class="staminatextbox" type="text" name="data.poolPoint.maxValue"
-                            value="{{data.poolPoint.maxValue}}" data-dtype="Number" />
+                            value="{{data.data.poolPoint.maxValue}}" data-dtype="Number" />
                         </div>
                     </div>
                     <div class="resource  flexcol flex-group-center cuteborder">
                         <div class="flexrow">
                             <input type="checkbox" name="data.dicePool.isUsed" {{checked item.data.dicePool.isUsed}} />
-                            <label for="data.dicePool.value">Dice pool</label>
+                            <label for="data.data.dicePool.value">Dice pool</label>
                         </div>
                         <div>
                             <input class="reductionbox" type="number" name="data.dicePool.value"
-                                value="{{data.dicePool.value}}" data-dtype="Number" />
+                                value="{{data.data.dicePool.value}}" data-dtype="Number" />
                         </div>
                     </div>
                     <div class="resource  flexcol flex-group-center cuteborder">
@@ -122,7 +122,7 @@
                 <div class="resource noteitem  flex-left cuteborder">
                     <label class="resource-label">Description</label>
                     <textarea type="text" name="data.resume" value="{{data.data.resume}}"
-                        data-dtype="text">{{data.resume}}</textarea>
+                        data-dtype="text">{{data.data.resume}}</textarea>
                 </div>
 
             <!-- <div class="tab items" data-group="primary" data-tab="knowledge">
