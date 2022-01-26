@@ -244,7 +244,8 @@
                     <div class="itemList flexcol">
                         <h2 class="resource-label borderBottom">Description</h2>
                         <div class="biography">
-                            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+                            <textarea type="text" name="data.biography" value="{{data.data.biography}}"
+                                      data-dtype="text">{{data.data.biography}}</textarea>
                         </div>
                     </div>
                 </div>
