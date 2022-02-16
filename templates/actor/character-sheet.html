@@ -10,51 +10,51 @@
                     </h1>
                     </h1>
                     <div class="cuteborder ">
-                        <label class="resource-label" for="data.race">Race</label>
-                        <input type="text" name="data.race" value="{{data.race}}" data-dtype="text" />
+                        <label class="resource-label" for="data.data.data.race">Race</label>
+                        <input type="text" name="data.race" value="{{data.data.race}}" data-dtype="text" />
                     </div>
                     <div class="cuteborder ">
-                        <label class="resource-label" for="data.elementofharmony">Element</label>
-                        <input type="text" name="data.elementofharmony" value="{{data.elementofharmony}}"
+                        <label class="resource-label" for="data.data.elementofharmony">Element</label>
+                        <input type="text" name="data.elementofharmony" value="{{data.data.elementofharmony}}"
                             data-dtype="text" />
                     </div>
                     <div class="cuteborder flexrow flex-group-center">
-                        <label class="resource-label" for="data.level">Level</label>
-                        <input class="textcenter" type="text" name="data.level" value="{{data.level}}"
+                        <label class="resource-label" for="data.data.level">Level</label>
+                        <input class="textcenter" type="text" name="data.level" value="{{data.data.level}}"
                             data-dtype="text" />
                     </div>
                 </div>
             </div>
             <div class="grid-2col">
                 <div class="flex-group-center cuteborder">
-                    <label class="resource-label" for="data.stamina.value">Stamina</label>
+                    <label class="resource-label" for="data.data.stamina.value">Stamina</label>
                     <div class="flexrow flex-group-center">
-                        <input type="text" name="data.stamina.value" value="{{data.stamina.value}}"
+                        <input type="text" name="data.stamina.value" value="{{data.data.stamina.value}}"
                             data-dtype="Number" />
                         <span> / </span>
-                        <input type="text" name="data.stamina.max" value="{{data.stamina.max}}" data-dtype="Number" />
+                        <input type="text" name="data.stamina.max" value="{{data.data.stamina.max}}" data-dtype="Number" />
                     </div>
                     <div class="flexrow flex-group-center">
-                        <label class="resource-label" for="data.stamina.damagereduction">Armor</label>
+                        <label class="resource-label" for="data.data.stamina.damagereduction">Armor</label>
                         <input type="number" name="data.stamina.damageReduction.value"
-                            value="{{data.stamina.damageReduction.value}}" data-dtype="Number" />
+                            value="{{data.data.stamina.damageReduction.value}}" data-dtype="Number" />
                     </div>
                 </div>
                 <div class=" flex-group-center friendshiptoken">
                     <div class=" flexcol flex-group-center">
-                        <label class="resource-label" for="data.friendship">Tokens</label>
-                        <input type="number" name="data.friendship" value="{{data.friendship}}" data-dtype="Number" />
+                        <label class="resource-label" for="data.data.friendship">Tokens</label>
+                        <input type="number" name="data.friendship" value="{{data.data.friendship}}" data-dtype="Number" />
                     </div>
                 </div>
             </div>
             <div class="abilities grid grid-3col">
-                {{#each data.abilities as |ability key|}}
+                {{#each data.data.abilities as |ability key|}}
                 <div class="ability flexcol flex-group-center cuteborder">
 
                     {{!-- data-roll = "caracdice, modifier;0,0--}}
                     <span class="ability-mod rollable " data-roll="{{ability.value}};{{ability.modif}}/"
                         data-label="{{key}}">
-                        <label for="data.abilities.{{key}}.value" class="resource-label">{{key}} <i
+                        <label for="data.data.abilities.{{key}}.value" class="resource-label">{{key}} <i
                                 class="fas fa-dice-d20"></i></label>
                     </span>
                     <div class="flexcol flex-group-center">
@@ -81,7 +81,7 @@
                             {{/select}}
                         </select>
                         <div class="resource-content flex flexrow flex-group-center">
-                            <label for="data.abilities.{{key}}.modif">mod</label>
+                            <label for="data.data.abilities.{{key}}.modif">mod</label>
                             <input type="number" step="1" name="data.abilities.{{key}}.modif" value="{{ability.modif}}"
                                 data-dtype="Number" />
                         </div>
@@ -253,7 +253,8 @@
                     <div class="itemList flexcol">
                         <h2 class="resource-label borderBottom">Description</h2>
                         <div class="biography">
-                            {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+                            <textarea type="text" name="data.biography" value="{{data.data.biography}}"
+                                      data-dtype="text">{{data.data.biography}}</textarea>
                         </div>
                     </div>
                 </div>

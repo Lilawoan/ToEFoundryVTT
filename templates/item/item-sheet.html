@@ -23,11 +23,11 @@
                     <div class="flexrow">
                         <div class="resource  flexcol flex-group-center  cuteborder">
                             <label class="resource-label">Quantity</label>
-                            <input type="text" name="data.quantity" value="{{data.quantity}}" data-dtype="Number" />
+                            <input type="text" name="data.quantity" value="{{data.data.quantity}}" data-dtype="Number" />
                         </div>
                         <div class="resource  flexcol flex-group-center  cuteborder">
                             <label class="resource-label">Price</label>
-                            <input type="text" name="data.price" value="{{data.price}}" data-dtype="Number" />
+                            <input type="text" name="data.price" value="{{data.data.price}}" data-dtype="Number" />
                         </div>
                     </div>
                 </div>
@@ -47,8 +47,8 @@
             <div class="tab items" data-group="primary" data-tab="description">
                 <div class="resource noteitem  flex-left cuteborder">
                     <label class="resource-label">Description</label>
-                    <textarea type="text" name="data.resume" value="{{data.resume}}"
-                        data-dtype="text">{{data.resume}}</textarea>
+                    <textarea type="text" name="data.resume" value="{{data.data.resume}}"
+                        data-dtype="text">{{data.data.resume}}</textarea>
                 </div>
             </div>
 
@@ -67,7 +67,7 @@
                     </div>
                     <div class="resource  flexcol flex-group-center  cuteborder">
                         <label class="resource-label">Speed</label>
-                        <input type="number" name="data.vehicle.speed" value="{{data.vehicle.speed}}" data-dtype="Number" />
+                        <input type="number" name="data.vehicle.speed" value="{{data.data.vehicle.speed}}" data-dtype="Number" />
                     </div>
                 </div>
                 <div class="grid grid-3col">
@@ -84,12 +84,12 @@
                         </select>                 </div>
                     <div class="resource  flexcol flex-group-center  cuteborder">
                         <label class="resource-label">Stability</label>
-                        <input type="number" name="data.vehicle.stability" value="{{data.vehicle.stability}}" data-dtype="Number" />
+                        <input type="number" name="data.vehicle.stability" value="{{data.data.vehicle.stability}}" data-dtype="Number" />
     
                     </div>
                     <div class="resource  flexcol flex-group-center  cuteborder">
                         <label class="resource-label">Armor</label>
-                        <input type="number" name="data.vehicle.armor" value="{{data.vehicle.armor}}" data-dtype="Number" />
+                        <input type="number" name="data.vehicle.armor" value="{{data.data.vehicle.armor}}" data-dtype="Number" />
                     </div>
                 </div>
             </div>
