@@ -6,26 +6,26 @@
                     </h1>
                     <div class="flexrow">
                         <div class="resource  flexcol flex-group-center  cuteborder">
-                            <label class="resource-label">Level</label>
+                            <label class="resource-label">{{localize "TOE.Level"}}</label>
                             <select name="data.level">
                                 {{#select data.level}}
-                                <option value="Esteemed">Esteemed</option>
-                                <option value="Friendly">Friendly</option>
-                                <option value="Neutral">Neutral</option>
-                                <option value="Unfriendly">Unfriendly</option>
-                                <option value="Hostile">Hostile</option>
+                                <option value="Esteemed">{{localize "TOE.Esteemed"}}</option>
+                                <option value="Friendly">{{localize "TOE.Friendly"}}</option>
+                                <option value="Neutral">{{localize "TOE.Neutral"}}</option>
+                                <option value="Unfriendly">{{localize "TOE.Unfriendly"}}</option>
+                                <option value="Hostile">{{localize "TOE.Hostile"}}</option>
                                 {{/select}}
                             </select> 
                         </div>
                         <div class="resource  flexcol flex-group-center  cuteborder">
-                            <label class="resource-label">Modifier</label>
+                            <label class="resource-label">{{localize "TOE.Modifier"}}</label>
                             <select name="data.modifier">
                                 {{#select data.modifier}}
-                                <option value="Upgrade x2">Upgrade x2</option>
-                                <option value="Upgrade x1">Upgrade x1</option>
-                                <option value="None">None</option>
-                                <option value="Downgrade x1">Downgrade x1</option>
-                                <option value="Downgrade x2">Downgrade x2</option>
+                                <option value="Upgrade x2">{{localize "TOE.Upgrade"}} x2</option>
+                                <option value="Upgrade x1">{{localize "TOE.Upgrade"}} x1</option>
+                                <option value="None">{{localize "TOE.None"}}</option>
+                                <option value="Downgrade x1">{{localize "TOE.Downgrade"}} x1</option>
+                                <option value="Downgrade x2">{{localize "TOE.Downgrade"}} x2</option>
                                 {{/select}}
                             </select> 
         
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             <div class="resource noteitem flexcol  flex-left cuteborder">
-                <label class="resource-label">Description</label>
+                <label class="resource-label">{{localize "TOE.Description"}}</label>
                 <textarea type="text" name="data.resume" value="{{data.data.resume}}"
                     data-dtype="text">{{data.data.resume}}</textarea>
             </div>

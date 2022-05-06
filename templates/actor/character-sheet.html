@@ -10,16 +10,16 @@
                     </h1>
                     </h1>
                     <div class="cuteborder ">
-                        <label class="resource-label" for="data.data.data.race">Race</label>
+                        <label class="resource-label" for="data.data.data.race">{{localize "TOE.Race"}}</label>
                         <input type="text" name="data.race" value="{{data.data.race}}" data-dtype="text" />
                     </div>
                     <div class="cuteborder ">
-                        <label class="resource-label" for="data.data.elementofharmony">Element</label>
+                        <label class="resource-label" for="data.data.elementofharmony">{{localize "TOE.Element"}}</label>
                         <input type="text" name="data.elementofharmony" value="{{data.data.elementofharmony}}"
                             data-dtype="text" />
                     </div>
                     <div class="cuteborder flexrow flex-group-center">
-                        <label class="resource-label" for="data.data.level">Level</label>
+                        <label class="resource-label" for="data.data.level">{{localize "TOE.Level"}}</label>
                         <input class="textcenter" type="text" name="data.level" value="{{data.data.level}}"
                             data-dtype="text" />
                     </div>
@@ -27,7 +27,7 @@
             </div>
             <div class="grid-2col">
                 <div class="flex-group-center cuteborder">
-                    <label class="resource-label" for="data.data.stamina.value">Stamina</label>
+                    <label class="resource-label" for="data.data.stamina.value">{{localize "TOE.Stamina"}}</label>
                     <div class="flexrow flex-group-center">
                         <input type="text" name="data.stamina.value" value="{{data.data.stamina.value}}"
                             data-dtype="Number" />
@@ -35,14 +35,14 @@
                         <input type="text" name="data.stamina.max" value="{{data.data.stamina.max}}" data-dtype="Number" />
                     </div>
                     <div class="flexrow flex-group-center">
-                        <label class="resource-label" for="data.data.stamina.damagereduction">Armor</label>
+                        <label class="resource-label" for="data.data.stamina.damagereduction">{{localize "TOE.Armor"}}</label>
                         <input type="number" name="data.stamina.damageReduction.value"
                             value="{{data.data.stamina.damageReduction.value}}" data-dtype="Number" />
                     </div>
                 </div>
                 <div class=" flex-group-center friendshiptoken">
                     <div class=" flexcol flex-group-center">
-                        <label class="resource-label" for="data.data.friendship">Tokens</label>
+                        <label class="resource-label" for="data.data.friendship">{{localize "TOE.Tokens"}}</label>
                         <input type="number" name="data.friendship" value="{{data.data.friendship}}" data-dtype="Number" />
                     </div>
                 </div>
@@ -94,11 +94,11 @@
             <div class="resource flexcol flex-left cuteborder">
                 <div class="flexrow">
                     <div class="itemList">
-                        <h4 class="resource-label">Quirks</h4>
+                        <h4 class="resource-label">{{localize "TOE.Quirks"}}</h4>
                     </div>
                     <div class="item-controls flexrow">
                         <a class="item-create" title="Create item" data-type="quirk">
-                            <i class="fas fa-plus"></i> Add</a>
+                            <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a>
                     </div>
                 </div>
                 <div class="flexrow ">
@@ -134,11 +134,11 @@
                 <div class="tab items" data-group="primary" data-tab="talents">
                     <div class="flexrow ">
                         <div class="itemList">
-                            <h2 class="resource-label borderBottom">Talents</h2>
+                            <h2 class="resource-label borderBottom">{{localize "TOE.Talents"}}</h2>
                         </div>
                         <div class="item-controls">
                             <p class="  flex-group-left"><a class="item-create" title="Create item" data-type="talent">
-                                    <i class="fas fa-plus"></i> Add</a></p>
+                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a></p>
                         </div>
                     </div>
                     <div class="itemList">
@@ -180,11 +180,11 @@
                 <div class="tab items" data-group="primary" data-tab="items">
                     <div class="flexrow ">
                         <div class="itemList">
-                            <h2 class="resource-label borderBottom">Inventory</h2>
+                            <h2 class="resource-label borderBottom">{{localize "TOE.Inventory"}}</h2>
                         </div>
                         <div class="item-controls">
                             <p class=" flex-group-left"><a class="item-create" title="Create item" data-type="item">
-                                    <i class="fas fa-plus"></i> Add</a></p>
+                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a></p>
                         </div>
                     </div>
                     <div class="itemList">
@@ -217,12 +217,12 @@
                 <div class="tab items" data-group="primary" data-tab="reputations">
                     <div class="flexrow ">
                         <div class="itemList">
-                            <h2 class="resource-label borderBottom">Reputations</h2>
+                            <h2 class="resource-label borderBottom">{{localize "TOE.Reputations"}}</h2>
                         </div>
                         <div class="item-controls">
                             <p class="  flex-group-left"><a class="item-create" title="Create item"
                                     data-type="reputation">
-                                    <i class="fas fa-plus"></i> Add</a></p>
+                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a></p>
                         </div>
                     </div>
                     <div class="itemList">
@@ -251,7 +251,7 @@
                 {{!-- Biography Tab --}}
                 <div class="tab biography" data-group="primary" data-tab="description">
                     <div class="itemList flexcol">
-                        <h2 class="resource-label borderBottom">Description</h2>
+                        <h2 class="resource-label borderBottom">{{localize "TOE.Description"}}</h2>
                         <div class="biography">
                             <textarea type="text" name="data.biography" value="{{data.data.biography}}"
                                       data-dtype="text">{{data.data.biography}}</textarea>
