@@ -3,12 +3,26 @@
   "title": "tailsofequestria",
   "description": "The Tails of Equestria system for FoundryVTT!",
   "version": "1.0.4",
-  "minimumCoreVersion": "0.7.5",
-  "compatibleCoreVersion": "0.7.9",
+  "compatibility": {
+    "minimum": "0.7.5",
+    "verified": "0.7.9",
+    "maximum": "10"
+  },
   "templateVersion": 2,
-  "author": "John Doe",
-  "esmodules": ["module/tailsofequestria.js"],
-  "styles": ["css/tailsofequestria.css"],
+  "authors": [
+    {
+      "name": "John Doe",
+      "url": "YOUR WEBSITE ADDRESS HERE",
+      "email": "YOUR EMAIL ADDRESS HERE",
+      "discord": "YOUR DISCORD USERNAME HERE"
+    }
+  ],
+  "esmodules": [
+    "module/tailsofequestria.js"
+  ],
+  "styles": [
+    "css/tailsofequestria.css"
+  ],
   "scripts": [],
   "packs": [],
   "languages": [
