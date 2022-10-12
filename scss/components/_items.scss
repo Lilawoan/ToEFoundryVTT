@@ -1,35 +1,90 @@
 .items-list {
-  list-style: none;
-  margin: 7px 0;
-  padding: 0;
-  overflow-y: auto;
+    list-style: none;
+    margin: 7px 0;
+    padding: 0;
+    overflow-y: auto;
+}
 
-  .item-header {
+.item-header {
+    flex-grow: 2;
+}
+
+.items-list {
+    .item {
+        img {
+            display: block;
+        }
+        height: 30px;
+        line-height: 24px;
+        padding: 3px 0;
+        border-bottom: 1px solid #BBB;
+    }
+}
+
+.item-image {
+    flex: 0 0 auto;
+    margin-right: 5px;
+}
+
+.item-title {
+    align-items: baseline;
+}
+
+.sheet-name {
+    margin-bottom: 15px;
+}
+
+.item-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex-grow: 3;
     font-weight: bold;
-  }
+}
 
-  .item {
-    height: 30px;
-    line-height: 24px;
-    padding: 3px 0;
-    border-bottom: 1px solid #BBB;
+.talentdice {
+    flex-grow: 1;
+    margin-right: 1%;
+}
 
-    .item-image {
-      flex: 0 0 24px;
-      margin-right: 5px;
+.item-create {
+    font-size: small;
+    margin-left: 5px;
+    flex: none;
+}
+
+.item-edit {
+    .item-delete {
+        flex-grow: 0;
     }
+}
 
-    img {
-      display: block;
-    }
-  }
-
-  .item-name {
-    margin: 0;
-  }
-
-  .item-controls {
-    flex: 0 0 86px;
+.item-controls {
+    flex: 0 0 auto;
     text-align: right;
-  }
+}
+
+.item-control {
+    margin: 0 4px;
+}
+
+.itemList {
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    display: flex;
+    font-size: smaller;
+}
+
+.itemcard {
+    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    height: 45px;
+    font-size: small;
+    padding-bottom: 2%;
+    margin: 1px;
+}
+
+.itemInfo {
+    margin-top: -10px;
 }

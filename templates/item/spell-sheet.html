@@ -1,24 +1,23 @@
 <form class="{{cssClass}} colorscheme" autocomplete="off">
     <div class="cutebigtab">
-            <div class="item-header ">
-                <h1 class="resource-label sheet-name flex-right flex-between">
-                    <input class="borderBottom" name="name" type="text" value="{{item.name}}" placeholder="Name" />
-                </h1>
-                <div class="flexrow">
-                    <div class="flexrow flex-center flex-right cuteborder">
-                        <label for="data.data.source">Source</label>
-                        <input class="reductionbox" type="text" name="data.source" value="{{data.data.source}}" data-dtype="text" />
-                    </div>             
-                    <div class="resource  flexcol flex-group-center  cuteborder">
-                        <label class="resource-label">Difficulty</label>
-                        <input type="text" name="data.difficulty" value="{{data.data.difficulty}}" data-dtype="Number" />
-                    </div>
+        <div class="item-header ">
+            <h1 class="resource-label sheet-name flex-right flex-between">
+                <input class="borderBottom" name="name" type="text" value="{{item.name}}" placeholder="Name" />
+            </h1>
+            <div class="flexrow">
+                <div class="flexrow flex-center flex-right cuteborder">
+                    <label for="system.source">Source</label>
+                    <input class="reductionbox" type="text" name="system.source" value="{{item.system.source}}" data-dtype="text" />
+                </div>
+                <div class="resource  flexcol flex-group-center  cuteborder">
+                    <label class="resource-label">Difficulty</label>
+                    <input type="text" name="system.difficulty" value="{{item.system.difficulty}}" data-dtype="Number" />
                 </div>
             </div>
+        </div>
         <div class="resource noteitem flexcol  flex-left cuteborder">
             <label class="resource-label">Description</label>
-            <textarea type="text" name="data.resume" value="{{data.data.resume}}"
-                data-dtype="text">{{data.data.resume}}</textarea>
+            <textarea type="text" name="system.resume" value="{{item.system.resume}}" data-dtype="text">{{item.system.resume}}</textarea>
         </div>
-</div>
+    </div>
 </form>
