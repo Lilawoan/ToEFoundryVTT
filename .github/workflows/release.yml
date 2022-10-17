@@ -42,11 +42,11 @@ jobs:
         MINOR_VERSION: ${{ steps.semver_parser.outputs.minor }}
         PATCH_VERSION: ${{ steps.semver_parser.outputs.patch }}
       run: |
-        if [[ $UPDATE_MAJOR_VERSION ]]; then
+        if [[ "$UPDATE_MAJOR_VERSION" == "true" ]]; then
           MAJOR_VERSION=$(($MAJOR_VERSION + 1))
           MINOR_VERSION=0
           PATCH_VERSION=0
-        elif [[ $UPDATE_MINOR_VERSION ]]; then
+        elif [[ "$UPDATE_MINOR_VERSION" == "true" ]]; then
           MINOR_VERSION=$(($MINOR_VERSION + 1))
           PATCH_VERSION=0
         else
