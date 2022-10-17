@@ -1,36 +1,40 @@
 {
-    "id": "tailsofequestria",
-    "name": "tailsofequestria",
-    "title": "tailsofequestria",
-    "description": "The Tails of Equestria system for FoundryVTT!",
-    "version": "1.0.5",
-    "compatibility": {
-        "minimum": "10",
-        "verified": "10",
-        "maximum": "10"
-    },
-    "authors": [{
-        "name": "John Doe"
-    }],
-    "esmodules": [
-        "module/tailsofequestria.js"
-    ],
-    "styles": [
-        "css/tailsofequestria.css"
-    ],
-    "scripts": [],
-    "packs": [],
-    "languages": [{
-        "lang": "en",
-        "name": "English",
-        "path": "lang/en.json"
-    }],
-    "gridDistance": 5,
-    "gridUnits": "ft",
-    "primaryTokenAttribute": "stamina",
-    "secondaryTokenAttribute": "friendship",
-    "url": "https://github.com/Lilawoan/ToEFoundryVTT",
-    "manifest": "https://raw.githubusercontent.com/Lilawoan/ToEFoundryVTT/main/system.json",
-    "download": "https://github.com/Lilawoan/ToEFoundryVTT/releases/download/release-1.0.5/tailsofequestria-release-1.0.5.zip",
-    "license": "LICENSE.txt"
+  "id": "tailsofequestria",
+  "name": "tailsofequestria",
+  "title": "tailsofequestria",
+  "description": "The Tails of Equestria system for FoundryVTT!",
+  "version": "2.0.0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10",
+    "maximum": "10"
+  },
+  "authors": [
+    {
+      "name": "John Doe"
+    }
+  ],
+  "esmodules": [
+    "module/tailsofequestria.js"
+  ],
+  "styles": [
+    "css/tailsofequestria.css"
+  ],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "stamina",
+  "secondaryTokenAttribute": "friendship",
+  "url": "https://github.com/Lilawoan/ToEFoundryVTT",
+  "manifest": "https://raw.githubusercontent.com/Lilawoan/ToEFoundryVTT/main/system.json",
+  "download": "https://github.com/Lilawoan/ToEFoundryVTT/releases/download/2.0.0/tailsofequestria-2.0.0.zip",
+  "license": "LICENSE.txt"
 }
