@@ -2,8 +2,7 @@
     <header>
         <div class="cutebigtab">
             <div class="flexrow">
-                <div class="flex-group-center"> <img class="item-img" src="{{item.img}}" data-edit="img"
-                        title="{{item.name}}"/></div>
+                <div class="flex-group-center"> <img class="item-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" /></div>
                 <div class="item-header ">
                     <h1 class="resource-label sheet-name flex-right flex-between">
                         <input class="borderBottom" name="name" type="text" value="{{item.name}}" placeholder="Name" />
@@ -13,9 +12,8 @@
                             <p>type : {{item.type}}</p>
                         </div>
                         <div class="flexrow flex-center flex-right cuteborder">
-                            <label for="data.data.source">Source</label>
-                            <input class="reductionbox" type="text" name="data.source" value="{{data.data.source}}"
-                                data-dtype="text" />
+                            <label for="system.source">Source</label>
+                            <input class="reductionbox" type="text" name="system.source" value="{{item.system.source}}" data-dtype="text" />
                         </div>
                     </div>
                 </div>
@@ -24,11 +22,10 @@
     </header>
 
     <div class="colorscheme">
-        <section  class="cutebigtab">
+        <section class="cutebigtab">
             <div class="resource noteitem flexcol  flex-left cuteborder">
                 <label class="resource-label">Description</label>
-                <textarea type="text" name="data.resume" value="{{data.data.resume}}"
-                    data-dtype="text">{{data.data.resume}}</textarea>
+                <textarea type="text" name="system.resume" value="{{item.system.resume}}" data-dtype="text">{{item.system.resume}}</textarea>
             </div>
         </section>
     </div>

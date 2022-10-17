@@ -1,0 +1,35 @@
+.colorscheme {
+    background: rgb(247, 235, 195);
+    border-radius: 30px;
+    padding: 1%;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+.borderBottom {
+    width: 100%;
+    border: none;
+    border-radius: 0px;
+    border-bottom: 5px solid rgb(244, 194, 223);
+    background: rgba(0, 0, 0, 0.00);
+}
+
+.dataheight {
+    height: 50px;
+}
+
+.InfoElipse {
+    font-size: smaller;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.infosheet {
+    width: 340px;
+    max-width: 340px;
+    min-width: 340px;
+    font-size: small;
+}

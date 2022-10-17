@@ -22,20 +22,40 @@ export class TailsofequestriaActorSheet extends ActorSheet {
     get template() {
         const basePath = "systems/tailsofequestria/templates/actor";
 
-        return `${basePath}/${this.actor.data.type}-sheet.html`;
+        return `${basePath}/${this.actor.type}-sheet.html`;
     }
 
     /* -------------------------------------------- */
 
     /** @override */
     getData() {
-        const data = super.getData();
-        data.dtypes = ["String", "Number", "Boolean"];
+        // The Actor's data
+        const source = this.actor.toObject();
+        const actorData = this.actor.toObject(false);
+        // Basic data
+        const context = {
+            actor: actorData,
+            owner: this.actor.isOwner,
+            limited: this.actor.limited,
+            options: this.options,
+            editable: this.isEditable,
+            cssClass: this.actor.isOwner ? "editable" : "locked",
+            isCharacter: this.actor.type === "character",
+            isNPC: this.actor.type === "non_player_character"
+        };
 
-        // Prepare items.
-        this._prepareCharacterItems(data);
+        this._prepareCharacterItems(context);
+        console.log("Context: " + JSON.stringify(context, null, 2))
 
-        return data;
+        return context;
+
+        // const data = super.getData();
+        // data.dtypes = ["String", "Number", "Boolean"];
+
+        // // Prepare items.
+        // this._prepareCharacterItems(data);
+        // console.log("Data: " + JSON.stringify(data, null, 2))
+        // return data;
     }
 
     /**
@@ -45,8 +65,8 @@ export class TailsofequestriaActorSheet extends ActorSheet {
      *
      * @return {undefined}
      */
-    _prepareCharacterItems(sheetData) {
-        const actorData = sheetData.actor;
+    _prepareCharacterItems(context) {
+        const actorData = context.actor;
 
         // Initialize containers.
         const gear = [];
@@ -56,8 +76,8 @@ export class TailsofequestriaActorSheet extends ActorSheet {
 
         // Iterate through items, allocating to containers
         // let totalWeight = 0;
-        for (let i of sheetData.items) {
-            let item = i.data;
+        for (let i of context.actor.items) {
+            let item = i;
             i.img = i.img || DEFAULT_TOKEN;
             // Append to gear.
             if (i.type === 'item') {
@@ -70,17 +90,18 @@ export class TailsofequestriaActorSheet extends ActorSheet {
             // Append to talents.
             else if (i.type === 'talent') {
                 talents.push(i);
-            }
-            else if (i.type === 'reputation') {
+            } else if (i.type === 'reputation') {
                 reputations.push(i);
             }
         }
 
-        // Assign and return
-        actorData.gear = gear;
-        actorData.quirks = quirks;
-        actorData.talents = talents;
-        actorData.reputations = reputations;
+        context.actor = {
+            ...actorData,
+            gear,
+            quirks,
+            talents,
+            reputations
+        };
     }
 
     /* -------------------------------------------- */
@@ -148,10 +169,10 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         delete itemData.data['type'];
 
         // Finally, create the item!
-        return this.actor.createEmbeddedDocuments("Item", [itemData], {renderSheet: true });
-//        return this.actor.createOwnedItem(itemData, {
-//            renderSheet: true
-//        });
+        return this.actor.createEmbeddedDocuments("Item", [itemData], { renderSheet: true });
+        //        return this.actor.createOwnedItem(itemData, {
+        //            renderSheet: true
+        //        });
     }
 
     /**
@@ -190,8 +211,8 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         }
         //get the dice for the additionnal roll
         if (jet2carac !== "") {
-            jet2.push(this.actor.data.data.abilities[jet2carac].value);
-            jet2.push(this.actor.data.data.abilities[jet2carac].modif);
+            jet2.push(this.actor.system.abilities[jet2carac].value);
+            jet2.push(this.actor.system.abilities[jet2carac].modif);
             if (jet2[1] !== "0") {
                 jet2mod = this._applyModifier(jet2);
                 roll = roll + ',' + jet2mod.join();
@@ -202,7 +223,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         roll = roll + "}kh";
 
         if (dataset.roll) {
-            let rolling = new Roll(roll, this.actor.data.data);
+            let rolling = new Roll(roll, this.actor.system);
             let label = dataset.label ? `Rolling ${dataset.label}` : '';
             rolling.toMessage({
                 speaker: ChatMessage.getSpeaker({
@@ -285,8 +306,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
 
         //for each dice in the array, apply the explosive dice and put the result in a new array
         let jet1modLength = jet1mod.length;
-        for(let step = 0; step < jet1modLength; step++)
-        {
+        for (let step = 0; step < jet1modLength; step++) {
             let pDice = this._applyExplosive(jet1mod[step]);
             let dice = await pDice;
             poolExplosive.push(...dice.dicepool)
@@ -299,16 +319,15 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         let jet2explosive = [];
         let pool2explosive = [];
         if (jet2carac !== "") {
-            jet2.push(this.actor.data.data.abilities[jet2carac].value);
-            jet2.push(this.actor.data.data.abilities[jet2carac].modif);
+            jet2.push(this.actor.system.abilities[jet2carac].value);
+            jet2.push(this.actor.system.abilities[jet2carac].modif);
 
 
             if (jet2[0] !== "") {
                 jet2mod = this._applyModifier(jet2);
                 //apply add the explosive dice result to the roll
                 let jet2modLength = jet2mod.length;
-                for(let step = 0; step < jet2modLength; step++)
-                {
+                for (let step = 0; step < jet2modLength; step++) {
                     let pDice = this._applyExplosive(jet2mod[step]);
                     let dice = await pDice;
                     pool2explosive.push(...dice.dicepool) //Dice Rolled
@@ -326,17 +345,15 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         falseroll = falseroll + "}kh";
 
         //create the true result
-        let rolling = new Roll(falseroll, this.actor.data.data);
+        let rolling = new Roll(falseroll, this.actor.system);
 
         //Determine highest value
         //Set that value as active
         let jetExplosiveLength = jetExplosive.length;
         let highest = 0;
         let hIndex = 0;
-        for(let step = 0; step < jetExplosiveLength; step++)
-        {
-            if(step === 0 || jetExplosive[step] > highest)
-            {
+        for (let step = 0; step < jetExplosiveLength; step++) {
+            if (step === 0 || jetExplosive[step] > highest) {
                 highest = jetExplosive[step];
                 hIndex = step;
             }
@@ -344,14 +361,12 @@ export class TailsofequestriaActorSheet extends ActorSheet {
 
         let fakeResults = [];
         //{result: 3, active: false, discarded: true}, {result:10, active: true}
-        for(let step = 0; step < jetExplosiveLength; step++)
-        {
-           if(step === hIndex){
-                fakeResults.push({result: jetExplosive[step], active: true})
-           }
-           else{
-                fakeResults.push({result: jetExplosive[step], active: false, discarded: true})
-           }
+        for (let step = 0; step < jetExplosiveLength; step++) {
+            if (step === hIndex) {
+                fakeResults.push({ result: jetExplosive[step], active: true })
+            } else {
+                fakeResults.push({ result: jetExplosive[step], active: false, discarded: true })
+            }
         }
 
         rolling.terms[0].results = fakeResults;
@@ -359,12 +374,11 @@ export class TailsofequestriaActorSheet extends ActorSheet {
 
         let oldRolls = rolling.terms[0].rolls;
         let oldRollsLength = oldRolls.length;
-        for(let step = 0; step < oldRollsLength; step++)
-        {
+        for (let step = 0; step < oldRollsLength; step++) {
             oldRolls[step]._total = jetExplosive[step]; // Set the roll value to the dice rolls
             oldRolls[step]._evaluated = true;
             oldRolls[step].terms[0]._evaluated = true;
-            oldRolls[step].terms[0].results = [{result: jetExplosive[step], active: true}];
+            oldRolls[step].terms[0].results = [{ result: jetExplosive[step], active: true }];
         }
 
         let label = dataset.label ? `Rolling ${dataset.label}` : '';
@@ -395,8 +409,8 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         ]);
         let roll = dataset;
         let dicepool = [];
-        // let rolling = new Roll(roll, this.actor.data.data);
-        let pJet = new Roll(roll, this.actor.data.data, false).roll();
+        // let rolling = new Roll(roll, this.actor.system);
+        let pJet = new Roll(roll, this.actor.system, false).roll();
         let jet = await pJet;
         let result = [];
         result.push(jet.total);
@@ -405,7 +419,7 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         //while dice is maximize continue to explode
         while (DiceResultMap.get(roll) === jet.total && jet.total !== 20) {
             roll = DiceRollMap.get(roll);
-            pJet = new Roll(roll, this.actor.data.data, false).roll();
+            pJet = new Roll(roll, this.actor.system, false).roll();
             jet = await pJet;
             result.push(jet.total);
             dicepool.push(roll);
