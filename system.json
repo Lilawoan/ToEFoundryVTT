@@ -3,7 +3,7 @@
   "name": "tailsofequestria",
   "title": "tailsofequestria",
   "description": "The Tails of Equestria system for FoundryVTT!",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "compatibility": {
     "minimum": "10",
     "verified": "10",
@@ -35,6 +35,6 @@
   "secondaryTokenAttribute": "friendship",
   "url": "https://github.com/Lilawoan/ToEFoundryVTT",
   "manifest": "https://raw.githubusercontent.com/Lilawoan/ToEFoundryVTT/main/system.json",
-  "download": "https://github.com/Lilawoan/ToEFoundryVTT/releases/download/release-1.0.6/tailsofequestria-1.0.6.zip",
+  "download": "https://github.com/Lilawoan/ToEFoundryVTT/releases/download/release-1.1.0/tailsofequestria-1.1.0.zip",
   "license": "LICENSE.txt"
 }
