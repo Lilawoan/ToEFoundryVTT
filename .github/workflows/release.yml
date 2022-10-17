@@ -64,7 +64,7 @@ jobs:
       run: |
         echo ::set-output name=FULL_VERSION::$VERSION
         echo ::set-output name=ZIP_NAME::tailsofequestria-$VERSION.zip
-        echo ::set-output name=RELEASE_DOWNLOAD_URL::https://github.com/${{github.repository}}/releases/download/$VERSION/tailsofequestria-$VERSION.zip
+        echo ::set-output name=RELEASE_DOWNLOAD_URL::https://github.com/${{github.repository}}/releases/download/release-$VERSION/tailsofequestria-$VERSION.zip
         echo ::set-output name=RELEASE_INSTALL_URL::https://github.com/${{github.repository}}/releases/download/$VERSION/system.json
         echo ::set-output name=TAG_NAME::release-$VERSION
 
@@ -128,11 +128,12 @@ jobs:
       uses: ad-m/github-push-action@v0.6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
         tags: true
 
     # Create a zip file with all files required by the module to add to the release
     - name: Create zip
-      run: zip ${{steps.get_vars.outputs.ZIP_NAME}} -r css lang module resources templates README.md system.json template.json
+      run: zip ${{steps.get_vars.outputs.ZIP_NAME}} -r css lang module ressources templates README.md system.json template.json
 
     - run: ls -a -l
 
