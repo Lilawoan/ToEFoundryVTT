@@ -2,11 +2,24 @@
 
 This system is a tailsofequestria system that you can use as a starting point for building your own custom systems. It's similar to Simple World-building, but has examples of creating attributes in code rather than dynamically through the UI.
 
-## Usage
+## Install in Foundry:
+1. Open Foundry Configuration and Setup screen
+2. Click on `Game Systems`
+3. Click on `Install System`
+4. Enter `https://raw.githubusercontent.com/Lilawoan/ToEFoundryVTT/main/system.json` in the `Manifest URL:` field
+5. Click on `Install`
 
-Before installing this system, you should rename any files that have `tailsofequestria` in their filename to use whatever machine-safe name your system needs, such as `adnd2e` if you were building a system for 2nd edition Advanced Dungeons & Dragons. In addition, you should search through the files for `tailsofequestria` and `Tailsofequestria` and do the same for those, replacing them with appropriate names for your system.
+With recent changes we should be able to add this to the systems Foundry knows about by default, we just haven't done it yet.
 
-## Sheet Layout
+
+## Development
+
+### Setup
+This repo includes both CSS for the theme and SCSS source files.  By default, the release will recompile the CSS from the SCSS files, so it's safer to update the SCSS files and compile them to CSS.
+
+To setup this project for development you will need `Node.js`.  Go to https://nodejs.org/en/download/ to download the latest version.  After Node.js is installed, you can run `npm install` in this directory to install the dependencies for the scss compiler. After that, just run `npm run gulp` to compile the SCSS and start a process that watches for new changes.
+
+### Sheet Layout
 
 This system includes a handful of helper CSS classes to help you lay out your sheets if you're not comfortable diving into CSS fully. Those are:
 
@@ -20,8 +33,13 @@ This system includes a handful of helper CSS classes to help you lay out your sh
 * `grid`: When combined with the `grid-Ncol` classes, this will lay out child elements in a grid.
 * `grid-Ncol`: Replace `N` with any number from 1-12, such as `grid-3col`. When combined with `grid`, this will layout child elements in a grid with a number of columns equal to the number specified.
 
-## Compiling the CSS
+### Create Release in Github
+1. Go to https://github.com/Lilawoan/ToEFoundryVTT/actions
+2. Click on the `Release Creation` workflow on the left.
+3. Click on `Run workflow` under the workflow runs
+4. Update `Branch`, `Update major version`, and `Update minor version` if applicable
+5. Click on `Run workflow`
 
-This repo includes both CSS for the theme and SCSS source files. If you're new to CSS, it's probably easier to just work in those files directly and delete the SCSS directory. If you're interested in using a CSS preprocessor to add support for nesting, variables, and more, you can run `npm install` in this directory to install the dependencies for the scss compiler. After that, just run `npm run gulp` to compile the SCSS and start a process that watches for new changes.
+If you do not see any of the above, you may be missing permissions.  We should probably only release from `master`.  If we need to create a release for another branch, we may need to update this workflow in `.github\workflows\release.yml`
 
 ![image](http://mattsmith.in/images/tailsofequestria.png)
