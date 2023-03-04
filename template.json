@@ -15,14 +15,17 @@
         },
         "abilities": {
           "body": {
+            "name": "TOE.Body",
             "value": "1d6",
             "modif": 0
           },
           "mind": {
+            "name": "TOE.Mind",
             "value": "1d6",
             "modif": 0
           },
           "charm": {
+            "name": "TOE.Charm",
             "value": "1d6",
             "modif": 0
           }

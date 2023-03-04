@@ -5,7 +5,7 @@
   "version": "1.0.4",
   "compatibility": {
     "minimum": "0.7.5",
-    "verified": "0.7.9",
+    "verified": "10.291.0",
     "maximum": "10"
   },
   "templateVersion": 2,
