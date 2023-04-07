@@ -36,11 +36,11 @@
 
                     {{!-- data-roll = "caracdice, modifier;0,0--}}
                     <span class="ability-mod rollable " data-roll="{{ability.value}};{{ability.modif}}/" data-label="{{key}}">
-                        <label for="actor.system.abilities.{{key}}.value" class="resource-label">{{key}} <i
+                        <label for="actor.system.abilities.{{key}}.value" class="resource-label">{{localize ability.name}} <i
                                 class="fas fa-dice-d20"></i></label>
                     </span>
                     <div class="flexcol flex-group-center">
-                        <select name="#system.abilities.{{key}}.value">
+                        <select name="system.abilities.{{key}}.value">
                             {{#select ability.value}}
                             <option value="1d4">1d4</option>
                             <option value="1d6">1d6</option>
