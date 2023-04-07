@@ -273,7 +273,6 @@
   -webkit-box-flex: 0;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-  margin: 2px;
   margin-right: 5px;
 }
 
@@ -343,11 +342,10 @@
 }
 
 .tailsofequestria .itemcard {
-  flex: auto;
-  /*width: 300px;*/
-  /*max-width: 300px;*/
+  width: 300px;
+  max-width: 300px;
   min-width: 300px;
-  min-height: 50px;
+  height: 45px;
   font-size: small;
   padding-bottom: 2%;
   margin: 1px;
@@ -355,17 +353,6 @@
 
 .tailsofequestria .itemInfo {
   margin-top: -10px;
-}
-
-.tailsofequestria .talentcard {
-  flex: auto;
-  /*width: 300px;*/
-  /*max-width: 300px;*/
-  min-width: 300px;
-  min-height: 50px;
-  font-size: small;
-  padding-bottom: 2%;
-  margin: 1px;
 }
 
 .tailsofequestria .friendshiptoken {
@@ -428,10 +415,9 @@
   border: 2px solid #f4c2df;
   background: #f8e1e7;
   border-radius: 10px;
-  margin-left: 2px;
-  margin-right: 2px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin-left: 1px;
+  margin-right: 1px;
+  margin-top: 1px;
   padding: 1px;
   padding-left: 5px;
   padding-right: 5px;
@@ -441,8 +427,7 @@
   border: 5px solid #f4c2df;
   background: #fff8e1;
   border-radius: 30px;
-  margin: 5px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .tailsofequestria .cutenavposition {
@@ -455,8 +440,8 @@
   -ms-flex-flow: column;
   flex-flow: column;
   top: 80px;
-  left: 0px;
-  width: 5px;
+  left: 22px;
+  width: 0px;
   -webkit-box-flex: 0 !important;
   -ms-flex: 0 0 0px !important;
   flex: 0 0 0 !important;
@@ -467,7 +452,7 @@
   background: radial-gradient(ellipse at center, white 0%, white 70%, rgba(224, 187, 228, 0) 70.3%);
   border: 5px solid #f4c2df !important;
   border-radius: 100%;
-  margin-top: 3px;
+  margin-top: 2px;
   text-align: center;
 }
 
@@ -475,11 +460,6 @@
   width: 40px;
   height: 40px;
   vertical-align: middle;
-}
-
-/* Override style.css to center icons */
-.sheet nav.sheet-tabs .item {
-  padding: 5px;
 }
 
 .tailsofequestria .cutenavText {
