@@ -9,37 +9,37 @@
                     </h1>
                     <div class="flexrow flex-center">
                         <div class="flexrow flex-center flex-right cuteborder">
-                            <label for="system.source">Source</label>
+                            <label for="system.source">{{localize "TOE.Source"}}</label>
                             <input class="reductionbox" type="text" name="system.source" value="{{item.system.source}}" data-dtype="text" />
                         </div>
                         <div class="flexrow flex-center flex-right cuteborder">
                             <input type="checkbox" name="system.used" {{checked item.system.used}} />
-                            <label>Used</label>
+                            <label>{{localize "TOE.Used"}}</label>
                         </div>
                     </div>
                     <div class="grid grid-2col">
                         <div>
                             <div class="resource  flexcol flex-group-center  cuteborder">
-                                <label class="resource-label">Trait</label>
+                                <label class="resource-label">{{localize "TOE.Trait"}}</label>
                                 <select name="system.ability.value">
                                     {{#select item.system.ability.value}}
-                                    <option value="body">body</option>
-                                    <option value="mind">mind</option>
-                                    <option value="charm">charm</option>
-                                    <option value="">none</option>
+                                    <option value="body">{{localize "TOE.Body"}}</option>
+                                    <option value="mind">{{localize "TOE.Mind"}}</option>
+                                    <option value="charm">{{localize "TOE.Charm"}}</option>
+                                    <option value="">{{localize "TOE.None"}}</option>
                                     {{/select}}
                                 </select>
                             </div>
 
                             <div class="resource flex-row cuteborder">
                                 <div class="flexrow flex-group-center">
-                                    <label class="resource-label">Trait</label>
+                                    <label class="resource-label">{{localize "TOE.Trait"}}</label>
                                     <select name="system.usePer.period">
                                         {{#select item.system.usePer.period}}
-                                        <option value="day">day</option>
-                                        <option value="week">week</option>
-                                        <option value="session">session</option>
-                                        <option value="">none</option>
+                                        <option value="day">{{localize "TOE.Day"}}</option>
+                                        <option value="week">{{localize "TOE.Week"}}</option>
+                                        <option value="session">{{localize "TOE.Session"}}</option>
+                                        <option value="">{{localize "TOE.None"}}</option>
                                         {{/select}}
                                     </select>
                                 </div>
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="resource  flexcol flex-group-center  cuteborder">
-                            <label class="resource-label">Level</label>
+                            <label class="resource-label">{{localize "TOE.Level"}}</label>
                             <select name="system.talentLevel.value">
                                 {{#select item.system.talentLevel.value}}
                                 <option value="1d4">1d4</option>
@@ -63,7 +63,7 @@
                                 {{/select}}
                             </select>
                             <div class="resource-content flex flex-row flex-right flex-between">
-                                <label for="system.modif">Modifier</label>
+                                <label for="system.modif">{{localize "TOE.Modifier"}}</label>
                                 <input class="reductionbox" type="number" name="system.modif" value="{{item.system.modif}}" data-dtype="Number" />
                             </div>
                         </div>
@@ -76,7 +76,7 @@
     <div class="colorscheme">
         {{!-- Sheet Tab Navigation --}}
         <nav class="sheet-tabs tabs flexrow flex-group-center" data-group="primary">
-            <a class="cutenav cutenavText item" data-tab="description"> Description</i></a>
+            <a class="cutenav cutenavText item" data-tab="description"> {{localize "TOE.Description"}}</i></a>
             <!-- <a class="cutenav cutenavText item" data-tab="knowledge"> knowledge</i></a> -->
         </nav>
 
@@ -87,7 +87,7 @@
                     <div class="resource  flexcol flex-group-center cuteborder">
                         <div class="flexrow">
                             <input type="checkbox" name="system.poolPoint.isUsed" {{checked item.system.poolPoint.isUsed}} />
-                            <label for="poolPoint.value">Points pool</label>
+                            <label for="poolPoint.value">{{localize "TOE.PointsPool"}}</label>
                         </div>
                         <div class=" staminabox resource-content flexrow flex-center flex-between">
                             <input class="staminatextbox" type="text" name="system.poolPoint.value" value="{{item.system.poolPoint.value}}" data-dtype="Number" />
@@ -98,7 +98,7 @@
                     <div class="resource  flexcol flex-group-center cuteborder">
                         <div class="flexrow">
                             <input type="checkbox" name="system.dicePool.isUsed" {{checked item.system.dicePool.isUsed}} />
-                            <label for="system.dicePool.value">Dice pool</label>
+                            <label for="system.dicePool.value">{{localize "TOE.DicePool"}}</label>
                         </div>
                         <div>
                             <input class="reductionbox" type="number" name="system.dicePool.value" value="{{item.system.dicePool.value}}" data-dtype="Number" />
@@ -107,12 +107,12 @@
                     <div class="resource  flexcol flex-group-center cuteborder">
                         <div class="flex">
                             <input type="checkbox" name="system.addition.isUsed" {{checked item.system.addition.isUsed}} />
-                            <label>Addition (not working yet)</label>
+                            <label>{{localize "TOE.Addition"}}</label>
                         </div>
                     </div>
                 </div>
                 <div class="resource noteitem flex-left cuteborder">
-                    <label class="resource-label">Description</label>
+                    <label class="resource-label">{{localize "TOE.Description"}}</label>
                     <textarea type="text" name="system.resume" value="{{item.system.resume}}" data-dtype="text">{{item.system.resume}}</textarea>
                 </div>
 

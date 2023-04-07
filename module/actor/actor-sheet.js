@@ -185,8 +185,8 @@ export class TailsofequestriaActorSheet extends ActorSheet {
         const element = event.currentTarget;
         const dataset = element.dataset;
         Dialog.confirm({
-            title: "Exploding Hoof",
-            content: "<p>Will it explode?</p>",
+            title: game.i18n.localize("TOE.ExplodingHoof"),
+            content: "<p>" + game.i18n.localize("TOE.ExplodingHoofDesc") + "</p>",
             yes: () => this._rollExplosiveDices(dataset),
             no: () => this._rollDices(dataset),
             defaultYes: false

@@ -5,16 +5,16 @@
             <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
             <div class="grid grid-2col">
                 <div class="resource  flexcol flex-group-center  cuteborder">
-                    <label class="resource-label">Quantity</label>
+                    <label class="resource-label">{{localize "TOE.Quantity"}}</label>
                     <input type="text" name="system.quantity" value="{{item.system.quantity}}" data-dtype="Number" />
                 </div>
                 <div class="resource  flexcol flex-group-center  cuteborder">
-                    <label class="resource-label">Price</label>
+                    <label class="resource-label">{{localize "TOE.Price"}}</label>
                     <input type="text" name="system.price" value="{{item.system.price}}" data-dtype="Number" />
                 </div>
             </div>
             <div class="resource  flexcol flex-group-center  cuteborder">
-                <label class="resource-label">Notes</label>
+                <label class="resource-label">{{localize "TOE.Notes"}}</label>
                 <input type="text" name="system.resume" value="{{item.system.resume}}" data-dtype="text" />
             </div>
         </div>
@@ -23,8 +23,8 @@
     <div class="colorscheme">
         {{!-- Sheet Tab Navigation --}}
         <nav class="sheet-tabs tabs" data-group="primary">
-            <a class="item cutenav" data-tab="description">Description</a>
-            <a class="item cutenav" data-tab="attributes">Attributes</a>
+            <a class="item cutenav" data-tab="description">{{localize "TOE.Description"}}</a>
+            <a class="item cutenav" data-tab="attributes">{{localize "TOE.Attributes"}}</a>
         </nav>
 
         {{!-- Sheet Body --}}

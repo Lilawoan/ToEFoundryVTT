@@ -9,22 +9,22 @@
                     </h1>
                     </h1>
                     <div class="cuteborder ">
-                        <label class="resource-label" for="system.race">Race</label>
+                        <label class="resource-label" for="system.race">{{localize "TOE.RaceNPC"}}</label>
                         <input type="text" name="system.race" value="{{actor.system.race}}" data-dtype="text" />
                     </div>
                     <div class="cuteborder flexrow flex-group-center">
-                        <label class="resource-label flex-group-left " for="system.isUnique">Unique</label>
+                        <label class="resource-label flex-group-left " for="system.isUnique">{{localize "TOE.Unique"}}</label>
                         <input type="checkbox" name="system.isUnique" {{checked actor.system.isUnique}} />
                     </div>
                     <div class="flex-group-center cuteborder">
-                        <label class="resource-label" for="system.stamina.value">Stamina</label>
+                        <label class="resource-label" for="system.stamina.value">{{localize "TOE.Stamina"}}</label>
                         <div class="flexrow flex-group-center">
                             <input type="text" name="system.stamina.value" value="{{actor.system.stamina.value}}" data-dtype="Number" />
                             <span> / </span>
                             <input type="text" name="system.stamina.max" value="{{actor.system.stamina.max}}" data-dtype="Number" />
                         </div>
                         <div class="flexrow flex-group-center">
-                            <label class="resource-label" for="system.stamina.damagereduction">Armor</label>
+                            <label class="resource-label" for="system.stamina.damagereduction">{{localize "TOE.Armor"}}</label>
                             <input type="number" name="system.stamina.damageReduction.value" value="{{actor.system.stamina.damageReduction.value}}" data-dtype="Number" />
                         </div>
                     </div>
@@ -75,11 +75,11 @@
             <div class="resource flexcol flex-left cuteborder quirktab">
                 <div class="flexrow">
                     <div class="itemList">
-                        <h4 class="resource-label">Quirks</h4>
+                        <h4 class="resource-label">{{localize "TOE.Quirks"}}</h4>
                     </div>
                     <div class="item-controls flexrow">
                         <a class="item-create" title="Create item" data-type="quirk">
-                            <i class="fas fa-plus"></i> Add</a>
+                            <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a>
                     </div>
                 </div>
                 <div class="flexrow ">
@@ -97,7 +97,7 @@
                 </div>
             </div>
             <div class="resource flexcol flex-left cuteborder">
-                <label class="resource-label">Tactics</label>
+                <label class="resource-label">{{localize "TOE.Tactics"}}</label>
                 <textarea type="text" name="system.tactics" value="{{actor.system.tactics}}" data-dtype="text">{{actor.system.tactics}}</textarea>
             </div>
 
@@ -119,12 +119,12 @@
                 <div class="tab items" data-group="primary" data-tab="talents">
                     <div class="flexrow ">
                         <div class="itemList">
-                            <h2 class="resource-label borderBottom">Talents</h2>
+                            <h2 class="resource-label borderBottom">{{localize "TOE.Talents"}}</h2>
                         </div>
                         <div class="item-controls">
                             <p class="  flex-group-left">
                                 <a class="item-create" title="Create item" data-type="talent">
-                                    <i class="fas fa-plus"></i> Add</a>
+                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a>
                             </p>
                         </div>
                     </div>
@@ -141,14 +141,14 @@
                                             class="fas fa-trash"></i></a>
                                 </div>
                                 <div class="flexrow flex-group-center talentInfo">
-                                    <p class="flex-group-left">Level : {{item.system.talentLevel.value}} {{#if item.system.ability.value}}({{item.system.ability.value}}){{/if}}</p>
+                                    <p class="flex-group-left">{{localize "TOE.Level"}} : {{item.system.talentLevel.value}} {{#if item.system.ability.value}}({{item.system.ability.value}}){{/if}}</p>
                                     {{#if item.system.usePer.numberOfUse}}
-                                    <p class="flex-group-left">use per {{item.system.usePer.period}} : {{item.system.usePer.numberOfUse}} / {{item.system.usePer.maxValue}} </p>{{/if}}
+                                    <p class="flex-group-left">{{localize "TOE.UsePer"}} {{item.system.usePer.period}} : {{item.system.usePer.numberOfUse}} / {{item.system.usePer.maxValue}} </p>{{/if}}
                                 </div>
                                 <div class="flexrow flex-group-center talentInfo">
                                     {{#if item.system.poolPoint.isUsed}}
-                                    <p class="flex-group-left"> Points : {{item.system.poolPoint.value}} / {{item.system.poolPoint.maxValue}} </p> {{/if}} {{#if item.system.dicePool.isUsed}}
-                                    <p class="flex-group-left"> Dices : {{item.system.dicePool.value}} </p>{{/if}}
+                                    <p class="flex-group-left"> {{localize "TOE.Points"}} : {{item.system.poolPoint.value}} / {{item.system.poolPoint.maxValue}} </p> {{/if}} {{#if item.system.dicePool.isUsed}}
+                                    <p class="flex-group-left"> {{localize "TOE.Dices"}} : {{item.system.dicePool.value}} </p>{{/if}}
                                 </div>
                             </div>
                         </div>
@@ -161,12 +161,12 @@
                 <div class="tab items" data-group="primary" data-tab="items">
                     <div class="flexrow ">
                         <div class="itemList">
-                            <h2 class="resource-label borderBottom">Inventory</h2>
+                            <h2 class="resource-label borderBottom">{{localize "TOE.Inventory"}}</h2>
                         </div>
                         <div class="item-controls">
                             <p class=" flex-group-left">
                                 <a class="item-create" title="Create item" data-type="item">
-                                    <i class="fas fa-plus"></i> Add</a>
+                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a>
                             </p>
                         </div>
                     </div>
@@ -184,7 +184,7 @@
                                             class="fas fa-trash"></i></a>
                                 </div>
                                 <div class="flexrow flex-group-left itemInfo ">
-                                    quantity : {{item.system.quantity}}
+                                    {{localize "TOE.Quantity"}} : {{item.system.quantity}}
                                 </div>
                             </div>
                         </div>
@@ -199,12 +199,12 @@
                 <div class="tab items" data-group="primary" data-tab="reputations">
                     <div class="flexrow ">
                         <div class="itemList">
-                            <h2 class="resource-label borderBottom">Reputations</h2>
+                            <h2 class="resource-label borderBottom">{{localize "TOE.Reputations"}}</h2>
                         </div>
                         <div class="item-controls">
                             <p class="  flex-group-left">
                                 <a class="item-create" title="Create item" data-type="reputation">
-                                    <i class="fas fa-plus"></i> Add</a>
+                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a>
                             </p>
                         </div>
                     </div>
@@ -219,8 +219,8 @@
                                         class="fas fa-trash"></i></a>
                             </div>
                             <div class="flexrow flex-group-center talentInfo">
-                                <p class="flex-group-left">level : {{item.system.level}} </p>
-                                <p class="flex-group-left"> modifier : {{item.system.modifier}}</p>
+                                <p class="flex-group-left">{{localize "TOE.Level"}} : {{item.system.level}} </p>
+                                <p class="flex-group-left">{{localize "TOE.Modifier"}} : {{item.system.modifier}}</p>
                             </div>
                         </div>
 
@@ -234,7 +234,7 @@
                 {{!-- Biography Tab --}}
                 <div class="tab biography" data-group="primary" data-tab="description">
                     <div class="itemList flexcol">
-                        <h2 class="resource-label borderBottom">Description</h2>
+                        <h2 class="resource-label borderBottom">{{localize "TOE.Description"}}</h2>
                         <div class="biography">
                             <textarea type="text" name="system.biography" value="{{actor.system.biography}}" data-dtype="text">{{actor.system.biography}}</textarea>
                         </div>

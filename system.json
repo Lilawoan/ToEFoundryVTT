@@ -11,7 +11,10 @@
   },
   "authors": [
     {
-      "name": "John Doe"
+      "name": "John Doe",
+      "url": "YOUR WEBSITE ADDRESS HERE",
+      "email": "YOUR EMAIL ADDRESS HERE",
+      "discord": "YOUR DISCORD USERNAME HERE"
     }
   ],
   "esmodules": [
@@ -24,6 +27,11 @@
   "packs": [],
   "languages": [
     {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    },
+    {
       "lang": "en",
       "name": "English",
       "path": "lang/en.json"
@@ -33,8 +41,8 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "stamina",
   "secondaryTokenAttribute": "friendship",
-  "url": "https://github.com/Lilawoan/ToEFoundryVTT",
-  "manifest": "https://raw.githubusercontent.com/Lilawoan/ToEFoundryVTT/main/system.json",
-  "download": "https://github.com/Lilawoan/ToEFoundryVTT/releases/download/release-1.1.0/tailsofequestria-1.1.0.zip",
+  "url": "",
+  "manifest": "",
+  "download": "",
   "license": "LICENSE.txt"
 }

@@ -8,25 +8,25 @@
                         <input class="borderBottom" name="name" type="text" value="{{item.name}}" placeholder="Name" />
                     </h1>
                     <div class="cuteborder ">
-                        <p>type : {{item.type}}</p>
+                        <p>{{localize "TOE.Type"}} : {{item.type}}</p>
                     </div>
                     <div class="flexrow">
                         <div class="flexrow flex-center flex-right cuteborder">
                             <input type="checkbox" name="system.isUnique" {{checked item.system.isUnique}} />
-                            <label>Unique</label>
+                            <label>{{localize "TOE.Unique"}}</label>
                         </div>
                         <div class="flexrow flex-center flex-right cuteborder">
                             <input type="checkbox" name="system.isMagic" {{checked item.system.isMagic}} />
-                            <label>Magic</label>
+                            <label>{{localize "TOE.Magic"}}</label>
                         </div>
                     </div>
                     <div class="flexrow">
                         <div class="resource  flexcol flex-group-center  cuteborder">
-                            <label class="resource-label">Quantity</label>
+                            <label class="resource-label">{{localize "TOE.Quantity"}}</label>
                             <input type="text" name="system.quantity" value="{{item.system.quantity}}" data-dtype="Number" />
                         </div>
                         <div class="resource  flexcol flex-group-center  cuteborder">
-                            <label class="resource-label">Price</label>
+                            <label class="resource-label">{{localize "TOE.Price"}}</label>
                             <input type="text" name="system.price" value="{{item.system.price}}" data-dtype="Number" />
                         </div>
                     </div>
@@ -38,15 +38,15 @@
     <div class="colorscheme">
         {{!-- Sheet Tab Navigation --}}
         <nav class="sheet-tabs tabs flexrow flex-group-center" data-group="primary">
-            <a class="cutenav cutenavText item" data-tab="description"> Description</i></a>
-            <a class="cutenav cutenavText item" data-tab="vehicle"> Vehicle</i></a>
+            <a class="cutenav cutenavText item" data-tab="description"> {{localize "TOE.Description"}}</i></a>
+            <a class="cutenav cutenavText item" data-tab="vehicle"> {{localize "TOE.Vehicle"}}</i></a>
         </nav>
 
 
         <section class="cutebigtab sheet-body">
             <div class="tab items" data-group="primary" data-tab="description">
                 <div class="resource noteitem  flex-left cuteborder">
-                    <label class="resource-label">Description</label>
+                    <label class="resource-label">{{localize "TOE.Description"}}</label>
                     <textarea type="text" name="system.resume" value="{{item.system.resume}}" data-dtype="text">{{item.system.resume}}</textarea>
                 </div>
             </div>
@@ -54,40 +54,40 @@
             <div class="tab items" data-group="primary" data-tab="vehicle">
                 <div class="grid grid-2col">
                     <div class="resource  flexcol flex-group-center  cuteborder">
-                        <label class="resource-label">Type</label>
+                        <label class="resource-label">{{localize "TOE.Type"}}</label>
                         <select name="system.vehicle.type">
                             {{#select item.system.vehicle.type}}
-                            <option value="Land">Land</option>
-                            <option value="Air">Air</option>
-                            <option value="Water">Water</option>
-                            <option value="Other">Other</option>
+                            <option value="Land">{{localize "TOE.Land"}}</option>
+                            <option value="Air">{{localize "TOE.Air"}}</option>
+                            <option value="Water">{{localize "TOE.Water"}}</option>
+                            <option value="Other">{{localize "TOE.Other"}}</option>
                             {{/select}}
                         </select>
                     </div>
                     <div class="resource  flexcol flex-group-center  cuteborder">
-                        <label class="resource-label">Speed</label>
+                        <label class="resource-label">{{localize "TOE.Speed"}}</label>
                         <input type="number" name="system.vehicle.speed" value="{{item.system.vehicle.speed}}" data-dtype="Number" />
                     </div>
                 </div>
                 <div class="grid grid-3col">
                     <div class="resource  flexcol flex-group-center  cuteborder">
-                        <label class="resource-label">Handling</label>
+                        <label class="resource-label">{{localize "TOE.Handling"}}</label>
                         <select name="system.vehicle.handling">
                             {{#select item.system.vehicle.handling}}
-                            <option value="Upgrade x2">Upgrade x2</option>
-                            <option value="Upgrade x1">Upgrade x1</option>
-                            <option value="None">None</option>
-                            <option value="Downgrade x1">Downgrade x1</option>
-                            <option value="Downgrade x2">Downgrade x2</option>
+                            <option value="Upgrade x2">{{localize "TOE.Upgrade"}} x2</option>
+                            <option value="Upgrade x1">{{localize "TOE.Upgrade"}} x1</option>
+                            <option value="None">{{localize "TOE.None"}}</option>
+                            <option value="Downgrade x1">{{localize "TOE.Downgrade"}} x1</option>
+                            <option value="Downgrade x2">{{localize "TOE.Downgrade"}} x2</option>
                             {{/select}}
                         </select> </div>
                     <div class="resource  flexcol flex-group-center  cuteborder">
-                        <label class="resource-label">Stability</label>
+                        <label class="resource-label">{{localize "TOE.Stability"}}</label>
                         <input type="number" name="system.vehicle.stability" value="{{item.system.vehicle.stability}}" data-dtype="Number" />
 
                     </div>
                     <div class="resource  flexcol flex-group-center  cuteborder">
-                        <label class="resource-label">Armor</label>
+                        <label class="resource-label">{{localize "TOE.Armor"}}</label>
                         <input type="number" name="system.vehicle.armor" value="{{item.system.vehicle.armor}}" data-dtype="Number" />
                     </div>
                 </div>
