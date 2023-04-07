@@ -23,6 +23,7 @@
 
 .item-image {
     flex: 0 0 auto;
+    margin: 2px;
     margin-right: 5px;
 }
 
@@ -79,7 +80,7 @@
     width: 300px;
     max-width: 300px;
     min-width: 300px;
-    height: 45px;
+    min-height: 50px;
     font-size: small;
     padding-bottom: 2%;
     margin: 1px;

@@ -21,4 +21,11 @@
     @import 'components/token';
     @import 'components/basic';
     @import 'components/cute';
+    @import 'components/talent';
 }
+
+/* Override style.css to center icons */
+.sheet nav.sheet-tabs .item {
+    padding: 5px;
+  }
+  
