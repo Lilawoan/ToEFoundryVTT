@@ -36,9 +36,9 @@
                                     <label class="resource-label">{{localize "TOE.Trait"}}</label>
                                     <select name="system.usePer.period">
                                         {{#select item.system.usePer.period}}
-                                        <option value="day">day</option>
-                                        <option value="week">week</option>
-                                        <option value="session">session</option>
+                                        <option value="day">{{localize "TOE.Day"}}</option>
+                                        <option value="week">{{localize "TOE.Week"}}</option>
+                                        <option value="session">{{localize "TOE.Session"}}</option>
                                         <option value="">{{localize "TOE.None"}}</option>
                                         {{/select}}
                                     </select>
@@ -87,7 +87,7 @@
                     <div class="resource  flexcol flex-group-center cuteborder">
                         <div class="flexrow">
                             <input type="checkbox" name="system.poolPoint.isUsed" {{checked item.system.poolPoint.isUsed}} />
-                            <label for="poolPoint.value">Points pool</label>
+                            <label for="poolPoint.value">{{localize "TOE.PointsPool"}}</label>
                         </div>
                         <div class=" staminabox resource-content flexrow flex-center flex-between">
                             <input class="staminatextbox" type="text" name="system.poolPoint.value" value="{{item.system.poolPoint.value}}" data-dtype="Number" />
@@ -98,7 +98,7 @@
                     <div class="resource  flexcol flex-group-center cuteborder">
                         <div class="flexrow">
                             <input type="checkbox" name="system.dicePool.isUsed" {{checked item.system.dicePool.isUsed}} />
-                            <label for="system.dicePool.value">Dice pool</label>
+                            <label for="system.dicePool.value">{{localize "TOE.DicePool"}}</label>
                         </div>
                         <div>
                             <input class="reductionbox" type="number" name="system.dicePool.value" value="{{item.system.dicePool.value}}" data-dtype="Number" />
@@ -107,7 +107,7 @@
                     <div class="resource  flexcol flex-group-center cuteborder">
                         <div class="flex">
                             <input type="checkbox" name="system.addition.isUsed" {{checked item.system.addition.isUsed}} />
-                            <label>Addition (not working yet)</label>
+                            <label>{{localize "TOE.Addition"}}</label>
                         </div>
                     </div>
                 </div>

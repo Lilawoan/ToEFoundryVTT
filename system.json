@@ -41,8 +41,8 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "stamina",
   "secondaryTokenAttribute": "friendship",
-  "url": "https://github.com/Lilawoan/ToEFoundryVTT",
-  "manifest": "https://raw.githubusercontent.com/Lilawoan/ToEFoundryVTT/main/system.json",
-  "download": "https://github.com/Lilawoan/ToEFoundryVTT/releases/download/release-1.1.0/tailsofequestria-1.1.0.zip",
+  "url": "",
+  "manifest": "",
+  "download": "",
   "license": "LICENSE.txt"
 }
