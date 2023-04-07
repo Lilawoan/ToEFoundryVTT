@@ -273,6 +273,7 @@
   -webkit-box-flex: 0;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
+  margin: 2px;
   margin-right: 5px;
 }
 
