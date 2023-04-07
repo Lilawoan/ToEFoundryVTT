@@ -35,8 +35,8 @@
                         <input type="number" name="system.stamina.damageReduction.value" value="{{actor.system.stamina.damageReduction.value}}" data-dtype="Number" />
                     </div>
                 </div>
-                <div class=" flex-group-center friendshiptoken">
-                    <div class=" flexcol flex-group-center">
+                <div class="flex-group-center friendshiptoken">
+                    <div class="flexcol flex-group-center">
                         <label class="resource-label" for="system.friendship">{{localize "TOE.Tokens"}}</label>
                         <input type="number" name="system.friendship" value="{{actor.system.friendship}}" data-dtype="Number" />
                     </div>
@@ -130,7 +130,7 @@
                             <h2 class="resource-label borderBottom">{{localize "TOE.Talents"}}</h2>
                         </div>
                         <div class="item-controls">
-                            <p class="  flex-group-left">
+                            <p class="flex-group-left">
                                 <a class="item-create" title="Create item" data-type="talent">
                                     <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a>
                             </p>
@@ -138,7 +138,7 @@
                     </div>
                     <div class="itemList">
                         {{#each actor.talents as |item id|}}
-                        <div class=" talentcard item cuteborder flexrow flex-group-center" data-item-id="{{item._id}}">
+                        <div class="talentcard item cuteborder flexrow flex-group-center" data-item-id="{{item._id}}">
                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="45" height="45" />
                             </div>
                             <div class="flexcol talentright">
@@ -167,12 +167,12 @@
 
                 {{!-- Owned Items Tab --}}
                 <div class="tab items" data-group="primary" data-tab="items">
-                    <div class="flexrow ">
+                    <div class="flexrow">
                         <div class="itemList">
                             <h2 class="resource-label borderBottom">{{localize "TOE.Inventory"}}</h2>
                         </div>
                         <div class="item-controls">
-                            <p class=" flex-group-left">
+                            <p class="flex-group-left">
                                 <a class="item-create" title="Create item" data-type="item">
                                     <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a>
                             </p>
@@ -180,7 +180,7 @@
                     </div>
                     <div class="itemList">
                         {{#each actor.gear as |item id|}}
-                        <div class=" itemcard cuteborder item flexrow" data-item-id="{{item._id}}">
+                        <div class="itemcard cuteborder item flexrow" data-item-id="{{item._id}}">
                             <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="35" height="35" />
                             </div>
                             <div class="flexcol talentright">
