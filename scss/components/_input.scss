@@ -1,0 +1,26 @@
+input {
+    border: none;
+    border-radius: 5px;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+textarea {
+    border-radius: 10px;
+    border: 3px solid rgb(244, 194, 223);
+    background: rgb(255, 255, 255);
+    min-height: 100px;
+}
+
+select {
+    border: 3px solid rgb(244, 194, 223);
+    background: rgb(255, 255, 255);
+    border-radius: 30px;
+    padding: 1%;
+    width: 100%;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button;
+    opacity: 1;
+}

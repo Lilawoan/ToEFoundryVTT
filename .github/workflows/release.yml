@@ -1,0 +1,151 @@
+name: Release Creation
+
+on:
+  workflow_dispatch:
+    inputs:
+      update_major_version:
+        description: Update major version
+        default: 'false'
+        required: true
+      update_minor_version:
+        description: Update minor version.  This is ignored if update_major_version = true
+        default: 'false'
+        required: true
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: get previous version
+      id: get_previous_version
+      uses: notiz-dev/github-action-json-property@release
+      with: 
+          path: 'system.json'
+          prop_path: 'version'
+
+    - name: Parse semver string
+      id: semver_parser 
+      uses: booxmedialtd/ws-action-parse-semver@v1
+      with:
+        input_string: ${{ steps.get_previous_version.outputs.prop }}
+
+    - name: Update version number
+      id: update_version_number
+      env:
+        UPDATE_MAJOR_VERSION: ${{ github.event.inputs.update_major_version }}
+        UPDATE_MINOR_VERSION: ${{ github.event.inputs.update_minor_version }}
+        MAJOR_VERSION: ${{ steps.semver_parser.outputs.major }}
+        MINOR_VERSION: ${{ steps.semver_parser.outputs.minor }}
+        PATCH_VERSION: ${{ steps.semver_parser.outputs.patch }}
+      run: |
+        if [[ "$UPDATE_MAJOR_VERSION" == "true" ]]; then
+          MAJOR_VERSION=$(($MAJOR_VERSION + 1))
+          MINOR_VERSION=0
+          PATCH_VERSION=0
+        elif [[ "$UPDATE_MINOR_VERSION" == "true" ]]; then
+          MINOR_VERSION=$(($MINOR_VERSION + 1))
+          PATCH_VERSION=0
+        else
+          PATCH_VERSION=$(($PATCH_VERSION + 1))
+        fi
+        echo ::set-output name=MAJOR_VERSION::$MAJOR_VERSION
+        echo ::set-output name=MINOR_VERSION::$MINOR_VERSION
+        echo ::set-output name=PATCH_VERSION::$PATCH_VERSION
+        echo ::set-output name=FULL_VERSION::$MAJOR_VERSION.$MINOR_VERSION.$PATCH_VERSION
+
+    - name: Set up variables
+      id: get_vars
+      env:
+        VERSION: ${{ steps.update_version_number.outputs.FULL_VERSION }}
+      run: |
+        echo ::set-output name=FULL_VERSION::$VERSION
+        echo ::set-output name=ZIP_NAME::tailsofequestria-$VERSION.zip
+        echo ::set-output name=RELEASE_DOWNLOAD_URL::https://github.com/${{github.repository}}/releases/download/release-$VERSION/tailsofequestria-$VERSION.zip
+        echo ::set-output name=RELEASE_INSTALL_URL::https://github.com/${{github.repository}}/releases/download/$VERSION/system.json
+        echo ::set-output name=TAG_NAME::release-$VERSION
+
+    - name: Update package.json version
+      uses: jossef/action-set-json-field@v2
+      with:
+        file: package.json
+        field: version
+        value: ${{ steps.get_vars.outputs.FULL_VERSION }}
+
+    - name: Update system.json version
+      uses: jossef/action-set-json-field@v2
+      with:
+        file: system.json
+        field: version
+        value: ${{ steps.get_vars.outputs.FULL_VERSION }}
+
+    - name: Update system.json download url
+      uses: jossef/action-set-json-field@v2
+      with:
+        file: system.json
+        field: download
+        value: ${{ steps.get_vars.outputs.RELEASE_DOWNLOAD_URL }}
+
+    - name: get download url
+      id: get_download_url
+      uses: notiz-dev/github-action-json-property@release
+      with: 
+          path: 'system.json'
+          prop_path: 'download'
+
+    # Set up Node
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16.x'
+        cache: 'npm'
+
+
+    # `npm ci` is recommended:
+    # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+    - name: Install Dependencies
+      run: npm ci
+
+
+    # Run our `build` script
+    - name: Build All
+      run: |
+        npm run compile --if-present
+
+
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git commit -m "docs(): bumping release ${{ steps.get_vars.outputs.FULL_VERSION }}"
+        git tag ${{ steps.get_vars.outputs.TAG_NAME }}
+        
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
+        tags: true
+
+    # Create a zip file with all files required by the module to add to the release
+    - name: Create zip
+      run: zip ${{steps.get_vars.outputs.ZIP_NAME}} -r css lang module ressources templates README.md system.json template.json
+
+    - run: ls -a -l
+
+    # Create a release for this specific version
+    - name: Update Release with Files
+      id: create_version_release
+      uses: ncipollo/release-action@v1
+      with:
+        name: ${{ steps.get_vars.outputs.FULL_VERSION }}
+        draft: false
+        prerelease: false
+        token: ${{ secrets.GITHUB_TOKEN }}
+        artifacts: './system.json, ./${{steps.get_vars.outputs.ZIP_NAME}}'
+        tag: ${{steps.get_vars.outputs.TAG_NAME}}
+        body: '**Installation:** To manually install this release, please use the following manifest URL: ${{steps.get_vars.outputs.RELEASE_INSTALL_URL}}'

@@ -1,0 +1,14 @@
+.friendshiptoken {
+    background: radial-gradient( ellipse at center, rgb(248, 225, 231) 0%, rgb(248, 225, 231) 70%, rgba(224, 187, 228, 0) 70.3%);
+    border: 2px solid rgb(244, 194, 223) !important;
+    border-radius: 100%;
+    width: 90px;
+    height: 90px;
+    position: relative;
+    margin-right: 25%;
+    margin-left: 25%;
+    display: inline-flex;
+    input {
+        width: 80%;
+    }
+}

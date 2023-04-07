@@ -2,49 +2,45 @@
     <div class="colorscheme flexrow">
         <div class="cutebigtab infosheet">
             <div class="grid-2col">
-                <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="auto"
-                    width="100" />
+                <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="auto" width="100" />
                 <div>
                     <h1 class="resource-label sheet-name flex-right flex-between">
                         <input class="borderBottom" name="name" type="text" value="{{actor.name}}" placeholder="Name" />
                     </h1>
                     </h1>
                     <div class="cuteborder ">
-                        <label class="resource-label" for="data.data.race">{{localize "TOE.RaceNPC"}}</label>
-                        <input type="text" name="data.race" value="{{data.data.race}}" data-dtype="text" />
+                        <label class="resource-label" for="system.race">{{localize "TOE.RaceNPC"}}</label>
+                        <input type="text" name="system.race" value="{{actor.system.race}}" data-dtype="text" />
                     </div>
                     <div class="cuteborder flexrow flex-group-center">
-                        <label class="resource-label flex-group-left "  for="data.data.isUnique">{{localize "TOE.Unique"}}</label>
-                        <input type="checkbox" name="data.isUnique" {{checked data.isUnique}} />
+                        <label class="resource-label flex-group-left " for="system.isUnique">{{localize "TOE.Unique"}}</label>
+                        <input type="checkbox" name="system.isUnique" {{checked actor.system.isUnique}} />
                     </div>
                     <div class="flex-group-center cuteborder">
-                        <label class="resource-label" for="data.data.stamina.value">{{localize "TOE.Stamina"}}</label>
+                        <label class="resource-label" for="system.stamina.value">{{localize "TOE.Stamina"}}</label>
                         <div class="flexrow flex-group-center">
-                            <input type="text" name="data.stamina.value" value="{{data.data.stamina.value}}"
-                                data-dtype="Number" />
+                            <input type="text" name="system.stamina.value" value="{{actor.system.stamina.value}}" data-dtype="Number" />
                             <span> / </span>
-                            <input type="text" name="data.stamina.max" value="{{data.data.stamina.max}}" data-dtype="Number" />
+                            <input type="text" name="system.stamina.max" value="{{actor.system.stamina.max}}" data-dtype="Number" />
                         </div>
                         <div class="flexrow flex-group-center">
-                            <label class="resource-label" for="data.data.stamina.damagereduction">{{localize "TOE.Armor"}}</label>
-                            <input type="number" name="data.stamina.damageReduction.value"
-                                value="{{data.data.stamina.damageReduction.value}}" data-dtype="Number" />
+                            <label class="resource-label" for="system.stamina.damagereduction">{{localize "TOE.Armor"}}</label>
+                            <input type="number" name="system.stamina.damageReduction.value" value="{{actor.system.stamina.damageReduction.value}}" data-dtype="Number" />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="abilities grid grid-3col">
-                {{#each data.abilities as |ability key|}}
+                {{#each actor.system.abilities as |ability key|}}
                 <div class="ability flexcol flex-group-center cuteborder">
 
                     {{!-- data-roll = "caracdice, modifier;0,0--}}
-                    <span class="ability-mod rollable " data-roll="{{ability.value}};{{ability.modif}}/"
-                        data-label="{{key}}">
-                        <label for="data.data.abilities.{{key}}.value" class="resource-label">{{key}} <i
+                    <span class="ability-mod rollable " data-roll="{{ability.value}};{{ability.modif}}/" data-label="{{key}}">
+                        <label for="actor.system.abilities.{{key}}.value" class="resource-label">{{key}} <i
                                 class="fas fa-dice-d20"></i></label>
                     </span>
                     <div class="flexcol flex-group-center">
-                        <select name="data.abilities.{{key}}.value">
+                        <select name="#system.abilities.{{key}}.value">
                             {{#select ability.value}}
                             <option value="1d4">1d4</option>
                             <option value="1d6">1d6</option>
@@ -67,9 +63,8 @@
                             {{/select}}
                         </select>
                         <div class="resource-content flex flexrow flex-group-center">
-                            <label for="data.data.abilities.{{key}}.modif">mod</label>
-                            <input type="number" step="1" name="data.abilities.{{key}}.modif" value="{{ability.modif}}"
-                                data-dtype="Number" />
+                            <label for="system.abilities.{{key}}.modif">mod</label>
+                            <input type="number" step="1" name="system.abilities.{{key}}.modif" value="{{ability.modif}}" data-dtype="Number" />
                         </div>
 
                     </div>
@@ -103,8 +98,7 @@
             </div>
             <div class="resource flexcol flex-left cuteborder">
                 <label class="resource-label">{{localize "TOE.Tactics"}}</label>
-                <textarea type="text" name="data.tactics" value="{{data.data.tactics}}"
-                    data-dtype="text">{{data.data.tactics}}</textarea>
+                <textarea type="text" name="system.tactics" value="{{actor.system.tactics}}" data-dtype="text">{{actor.system.tactics}}</textarea>
             </div>
 
         </div>
@@ -128,37 +122,33 @@
                             <h2 class="resource-label borderBottom">{{localize "TOE.Talents"}}</h2>
                         </div>
                         <div class="item-controls">
-                            <p class="  flex-group-left"><a class="item-create" title="Create item" data-type="talent">
-                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a></p>
+                            <p class="  flex-group-left">
+                                <a class="item-create" title="Create item" data-type="talent">
+                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a>
+                            </p>
                         </div>
                     </div>
                     <div class="itemList">
                         {{#each actor.talents as |item id|}}
                         <div class=" talentcard item cuteborder flexrow flex-group-center" data-item-id="{{item._id}}">
-                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="45"
-                                    height="45" />
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="45" height="45" />
                             </div>
                             <div class="flexcol talentright">
                                 <div class="ability-mod  item-title flexrow flex-group-center">
-                                    <h4 data-roll="{{item.data.talentLevel.value}};{{item.data.modif}}/{{item.data.ability.value}}"
-                                        data-label="{{item.name}}" class="flex-group-left item-name rollable"><i
-                                            class="fas fa-dice-d20"></i> {{item.name}} </h4>
+                                    <h4 data-roll="{{item.system.talentLevel.value}};{{item.system.modif}}/{{item.system.ability.value}}" data-label="{{item.name}}" class="flex-group-left item-name rollable"><i class="fas fa-dice-d20"></i> {{item.name}} </h4>
                                     <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
                                     <a class="item-control item-delete" title="Delete Item"><i
                                             class="fas fa-trash"></i></a>
                                 </div>
                                 <div class="flexrow flex-group-center talentInfo">
-                                    <p class="flex-group-left">Level : {{item.data.talentLevel.value}}
-                                        {{#if item.data.ability.value}}({{item.data.ability.value}}){{/if}}</p>
-                                    {{#if item.data.usePer.numberOfUse}}
-                                    <p class="flex-group-left">use per {{item.data.usePer.period}} :
-                                        {{item.data.usePer.numberOfUse}} / {{item.data.usePer.maxValue}} </p>{{/if}}
+                                    <p class="flex-group-left">Level : {{item.system.talentLevel.value}} {{#if item.system.ability.value}}({{item.system.ability.value}}){{/if}}</p>
+                                    {{#if item.system.usePer.numberOfUse}}
+                                    <p class="flex-group-left">use per {{item.system.usePer.period}} : {{item.system.usePer.numberOfUse}} / {{item.system.usePer.maxValue}} </p>{{/if}}
                                 </div>
                                 <div class="flexrow flex-group-center talentInfo">
-                                    {{#if item.data.poolPoint.isUsed}} <p class="flex-group-left"> Points :
-                                        {{item.data.poolPoint.value}} / {{item.data.poolPoint.maxValue}} </p> {{/if}}
-                                    {{#if item.data.dicePool.isUsed}} <p class="flex-group-left"> Dices :
-                                        {{item.data.dicePool.value}} </p>{{/if}}
+                                    {{#if item.system.poolPoint.isUsed}}
+                                    <p class="flex-group-left"> Points : {{item.system.poolPoint.value}} / {{item.system.poolPoint.maxValue}} </p> {{/if}} {{#if item.system.dicePool.isUsed}}
+                                    <p class="flex-group-left"> Dices : {{item.system.dicePool.value}} </p>{{/if}}
                                 </div>
                             </div>
                         </div>
@@ -174,15 +164,16 @@
                             <h2 class="resource-label borderBottom">{{localize "TOE.Inventory"}}</h2>
                         </div>
                         <div class="item-controls">
-                            <p class=" flex-group-left"><a class="item-create" title="Create item" data-type="item">
-                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a></p>
+                            <p class=" flex-group-left">
+                                <a class="item-create" title="Create item" data-type="item">
+                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a>
+                            </p>
                         </div>
                     </div>
                     <div class="itemList">
                         {{#each actor.gear as |item id|}}
                         <div class=" itemcard cuteborder item flexrow" data-item-id="{{item._id}}">
-                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="35"
-                                    height="35" />
+                            <div class="item-image"><img src="{{item.img}}" title="{{item.name}}" width="35" height="35" />
                             </div>
                             <div class="flexcol talentright">
                                 <div class="ability-mod  item-title flexrow flex-group-center">
@@ -193,7 +184,7 @@
                                             class="fas fa-trash"></i></a>
                                 </div>
                                 <div class="flexrow flex-group-left itemInfo ">
-                                    quantity : {{item.data.quantity}}
+                                    quantity : {{item.system.quantity}}
                                 </div>
                             </div>
                         </div>
@@ -211,9 +202,10 @@
                             <h2 class="resource-label borderBottom">{{localize "TOE.Reputations"}}</h2>
                         </div>
                         <div class="item-controls">
-                            <p class="  flex-group-left"><a class="item-create" title="Create item"
-                                    data-type="reputation">
-                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a></p>
+                            <p class="  flex-group-left">
+                                <a class="item-create" title="Create item" data-type="reputation">
+                                    <i class="fas fa-plus"></i> {{localize "TOE.Add"}}</a>
+                            </p>
                         </div>
                     </div>
                     <div class="itemList">
@@ -227,11 +219,11 @@
                                         class="fas fa-trash"></i></a>
                             </div>
                             <div class="flexrow flex-group-center talentInfo">
-                                <p class="flex-group-left">level : {{item.data.level}} </p>
-                                <p class="flex-group-left"> modifier : {{item.data.modifier}}</p>
+                                <p class="flex-group-left">level : {{item.system.level}} </p>
+                                <p class="flex-group-left"> modifier : {{item.system.modifier}}</p>
                             </div>
                         </div>
-                      
+
                         {{/each}}
                     </div>
 
@@ -244,8 +236,7 @@
                     <div class="itemList flexcol">
                         <h2 class="resource-label borderBottom">{{localize "TOE.Description"}}</h2>
                         <div class="biography">
-                            <textarea type="text" name="data.biography" value="{{data.data.biography}}"
-                                      data-dtype="text">{{data.data.biography}}</textarea>
+                            <textarea type="text" name="system.biography" value="{{actor.system.biography}}" data-dtype="text">{{actor.system.biography}}</textarea>
                         </div>
                     </div>
                 </div>

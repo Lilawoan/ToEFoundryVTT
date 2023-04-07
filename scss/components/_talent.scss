@@ -1,0 +1,32 @@
+.talentsheet {
+    width: auto;
+    min-width: 340px;
+    margin-left: 19px;
+    padding-left: 25px;
+    padding-right: 10px;
+}
+
+.talentcard {
+    width: 300px;
+    max-width: 300px;
+    min-width: 300px;
+    height: 65px;
+    font-size: small;
+    padding-bottom: 2%;
+    margin: 1px;
+}
+
+.talentcard img {
+    border: none;
+}
+
+.talentInfo {
+    height: auto;
+    font-size: smaller;
+    margin-top: -10px;
+}
+
+.talentright {
+    max-width: 230px;
+    align-self: flex-start;
+}
