@@ -3,7 +3,7 @@
   "name": "tailsofequestria",
   "title": "tailsofequestria",
   "description": "The Tails of Equestria system for FoundryVTT!",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "compatibility": {
     "minimum": "10",
     "verified": "10",
@@ -11,10 +11,10 @@
   },
   "authors": [
     {
-      "name": "John Doe",
-      "url": "YOUR WEBSITE ADDRESS HERE",
+      "name": "The Power Of Friendship",
+      "url": "https://github.com/Lilawoan/ToEFoundryVTT",
       "email": "YOUR EMAIL ADDRESS HERE",
-      "discord": "YOUR DISCORD USERNAME HERE"
+      "discord": "https://discord.gg/sCwyTJ9q"
     }
   ],
   "esmodules": [
@@ -41,8 +41,8 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "stamina",
   "secondaryTokenAttribute": "friendship",
-  "url": "",
-  "manifest": "",
-  "download": "",
+  "url": "https://github.com/Lilawoan/ToEFoundryVTT",
+  "manifest": "https://raw.githubusercontent.com/Lilawoan/ToEFoundryVTT/main/system.json",
+  "download": "https://github.com/Lilawoan/ToEFoundryVTT/releases/download/release-1.2.0/tailsofequestria-1.2.0.zip",
   "license": "LICENSE.txt"
 }
