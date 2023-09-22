@@ -1,6 +1,6 @@
 {
   "name": "tailsofequestria",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "CSS compiler for the Tailsofequestria system",
   "scripts": {
     "build": "gulp",
