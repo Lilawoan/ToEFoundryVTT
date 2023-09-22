@@ -472,7 +472,7 @@
   margin-bottom: none;
 }
 
-.tailsofequestria .tailsofequestria .cuteTalentBorder {
+.tailsofequestria .cuteTalentBorder {
   border: 3px solid #f4c2df;
   background: white;
   border-radius: 30px;
@@ -485,8 +485,8 @@
 
 .tailsofequestria .talentsheet {
   width: auto;
-  min-width: 340px;
-  margin-left: 19px;
+  min-width: 335px;
+  margin-left: 15px;
   padding-left: 25px;
   padding-right: 10px;
 }
