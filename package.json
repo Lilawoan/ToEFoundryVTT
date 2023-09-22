@@ -19,6 +19,6 @@
     "gulp-autoprefixer": "^8.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
-    "node-sass": "^8.0.0"
+    "node-sass": "^9.0.0"
   }
 }
