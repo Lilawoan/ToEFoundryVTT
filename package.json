@@ -16,9 +16,9 @@
   "private": true,
   "devDependencies": {
     "gulp": "^5.0.1",
-    "gulp-autoprefixer": "^9.0.0",
-    "gulp-sass": "^6.0.1",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^2.6.5",
-    "node-sass": "^9.0.0"
+    "sass": "^1.89.2"
   }
 }
