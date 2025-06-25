@@ -290,7 +290,6 @@
 .tailsofequestria .item-name {
   overflow: hidden;
   white-space: nowrap;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
   -webkit-box-flex: 3;
   -ms-flex-positive: 3;
@@ -357,7 +356,6 @@
 }
 
 .tailsofequestria .friendshiptoken {
-  background: -o-radial-gradient(center, ellipse, #f8e1e7 0%, #f8e1e7 70%, rgba(224, 187, 228, 0) 70.3%);
   background: radial-gradient(ellipse at center, #f8e1e7 0%, #f8e1e7 70%, rgba(224, 187, 228, 0) 70.3%);
   border: 2px solid #f4c2df !important;
   border-radius: 100%;
@@ -401,7 +399,6 @@
   font-size: smaller;
   white-space: nowrap;
   overflow: hidden;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
 
@@ -451,7 +448,6 @@
 }
 
 .tailsofequestria .cutenav {
-  background: -o-radial-gradient(center, ellipse, white 0%, white 70%, rgba(224, 187, 228, 0) 70.3%);
   background: radial-gradient(ellipse at center, white 0%, white 70%, rgba(224, 187, 228, 0) 70.3%);
   border: 5px solid #f4c2df !important;
   border-radius: 100%;
